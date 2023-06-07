@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width:300px;
+            height:200px;
+            border:3px solid red;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <h3>用户须知</h3>
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+        jasdfkljasdklfjaskl
+        asdjkfljasdklf
+    </div>
+    <!-- 
+        disabled可以使按钮之类属性变灰不可点击
+     -->
+    <input type="checkbox" name="" id="" disabled> 我已阅读
+    <button disabled>提交</button>
+
+    <script>
+        var myBox = document.getElementById('box')
+        var myInput = document.querySelector('input')
+        var myButton = document.querySelector('button')
+
+        var max = myBox.scrollHeight - myBox.clientHeight;
+        myBox.onscroll = function(){
+            if(myBox.scrollTop >= max -5){
+                myInput.disabled = false
+                myButton.disabled = false
+            }
+        }
+        // myBox.onscroll=function(){
+        //     console.log(myBox.scrollTop)
+        // }
+    </script>
+</body>
+</html>

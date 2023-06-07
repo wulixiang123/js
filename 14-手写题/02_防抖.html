@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="">
+
+    <script>
+
+         /**
+         *  防抖：用户频繁触发的行为，只执行最后一次间隔一定时间的那一次
+         * 
+         */
+        var myInput = document.querySelector('input')
+        var timer = null
+        myInput.onkeyup = function(){
+            if(timer){
+                clearTimeout(timer)
+            }
+            timer = setTimeout(()=>{
+                console.log(this.value)
+            },1000)
+        }
+
+
+        /**
+         * 防抖：闭包
+         * 定时器
+         * 箭头函数 this arguments
+         */
+
+         function fangzhidoudong(fn,time){
+            var timer = null
+            return function(){
+                if(timer){
+                    clearTimeout(timer)
+                }
+                timer = setTimeout(()=>{
+                    if(fn){
+                        fn.apply(this,arguments)
+                    }
+                },time)
+            }
+         }
+
+         myInput.onkeyup = fangzhidoudong(function(e){
+            console.log(this.value)
+            console.log(e.target.value)
+         },1000)
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /**
+         *  js 是单线程的，所以如果上面的代码有报错，下面的不执行
+         */
+
+        // 1. 变量需要先声明再使用
+        // console.log(a); // a is not defined  ==> 变量a未定义
+
+        // 2. js 语句 会忽略空格
+        var                b              =  
+        
+        
+        2;
+        var c = 3;
+        console.log(b,c)
+
+        // 3. 可以批量声明多个变量，在赋值使用
+        var z,y,x; // 先声明不赋值，变量的值有默认值：undefined
+        console.log('z: ', z)
+        console.log('y: ', y)
+        console.log('x: ', x)
+
+        z = 100; // 先声明后赋值
+        y = 200;
+        x = 300;
+        console.log('z: ', z)
+        console.log('y: ', y)
+        console.log('x: ', x)
+
+        // 4. 声明多个变量并同时赋值
+        var o = 333,p = 444, q = 555;
+        console.log(o,p,q);
+
+        // 5. 不使用var 声明变量 直接赋值使用. （和使用var 区别在哪儿？ var 会进行变量的预解析）
+        //    推荐写法，一定要先声明之后在使用变量
+        zyx = 'zhouyuxiang'
+        console.log('zyx: ', zyx)
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 1. typeof 只能检测区分基本数据类型，引用数据类型无法细分
+         * 2. instanceof ： 判断一个对象是否是一个类[构造函数]的实例对象。
+         *          可以用来区分引用数据类型：Array Object
+         * 
+         * 3. Object.prototype.toString.call(数据)
+         * 
+         */
+
+        console.log(typeof 'abc');
+        console.log(typeof 1);
+        console.log(typeof true);
+        console.log(typeof null);
+        console.log(typeof undefined);
+
+        console.log(typeof {});// object
+        console.log(typeof []);// object
+        // 无法细分对象和数组
+        function fn(){
+
+        }
+        console.log(typeof fn);
+
+        /** 
+         *  2. instanceof 检测一个对象是否是一个类的实例对象
+         *  对象 instanceof 构造函数[类] 
+         *  instanceof 只要顺着原型链能找到，就是true
+         *  
+         */
+
+        var arr = [1,2,3,4];
+        var obj = {
+            name:'atguigu'
+        }
+
+        console.log('instanceof判断数组：',arr instanceof Array);// true
+        console.log('arr is Object? ', arr instanceof Object);// true
+        // instanceof 只要顺着原型链能找到，就是true
+        console.log(arr);
+
+        console.log('instanceof判断对象:', obj instanceof Object);// true
+        console.log('obj is Array?', obj instanceof Array);// false
+
+        
+        /**
+         * 
+         * 
+         * 
+         */
+        var b1 = true;
+        console.log('b1.toString(): ',b1.toString()); // "true"
+        console.log(b1.toString === Boolean.prototype.toString);
+
+        console.log(Object.prototype.toString.call(true));//[object Boolean]
+        console.log(Object.prototype.toString.call(1));// [object Number]
+        console.log(Object.prototype.toString.call(null));//[object Null]
+        console.log(Object.prototype.toString.call(undefined));// [object Undefined]
+        console.log(Object.prototype.toString.call('123'));//[object String]
+        console.log(Object.prototype.toString.call([]));//[object Array]
+        console.log(Object.prototype.toString.call({}));//[object Object]
+        console.log(Object.prototype.toString.call(fn));//[object Function]
+        function fn(){
+
+        }
+
+        function getType(param){
+            return Object.prototype.toString.call(param).slice(8,-1);
+        }
+
+        console.log(getType(1));
+        console.log(getType(true));
+        console.log(getType([]));
+        console.log(getType({}));
+        console.log(getType(null));
+
+        if(getType(1)==='Number'){
+            console.log('是数字')
+        }
+
+    </script>
+</body>
+</html>

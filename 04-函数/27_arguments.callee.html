@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function jieCheng(num){
+            console.log(arguments.callee);// 当前函数本身,一般应用于递归调用
+            jieCheng = null;
+            // return num === 1?1:num*jieCheng(num-1);
+            return num === 1?1:num*arguments.callee(num - 1);
+        }
+        console.log(jieCheng(5));
+    </script>
+</body>
+</html>

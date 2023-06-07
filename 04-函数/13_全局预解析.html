@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         *  预解析过程：
+         *  1. 首先将var 声明的变量只声明不赋值，值是undefined
+         *  2. 针对 function ，即声明同时赋值
+         *  3. 如果var 的变量和 function 函数名 同名，function权重高
+         *  4. 函数预解析
+         *      4-1. 声明式定义：声明并赋值
+         *      4-2. 字面量定义：只声明不赋值，值是undefined
+         * 
+         * 
+         */
+        // 1.
+        // console.log(a);
+        // var a = 1;
+        // console.log(a);
+        // fn();
+        // function fn(){
+        //     console.log('fn');
+        // }
+        // fn();
+
+        // 2. 预解析：function 权重高
+        // console.log(fn);
+        // var fn = 100;
+        // function fn (){
+        //     console.log('fn');
+        // }
+
+        // 3. 函数声明有两种方式
+            // 两种不同声明方式对预解析的影响
+        fn();
+        console.log('f1: ', f1);// 按照var 进行预解析而不是函数
+        f1();
+
+        // 方式一：声明式定义 ： 预解析=》声明并赋值
+        function fn(){
+            console.log('fn')
+        }
+
+        // 方式二：字面量定义 : 预解析 =》 只声明不赋值，值是undefined
+        var f1 = function(){// 匿名函数
+            console.log('f1');
+        }
+
+        console.log('fn: ', fn);
+        console.log('f1: ', f1);
+
+
+        // 4. 预解析图示
+        console.log(a);
+        var a = 1;
+        console.log(a);
+        fn();
+        function fn(){
+            console.log('fn');
+        }
+        fn();
+
+
+        
+
+
+
+
+
+    </script>
+</body>
+</html>

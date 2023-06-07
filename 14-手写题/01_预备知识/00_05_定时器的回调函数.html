@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         *  定时器的回调函数是异步的
+         *  定时器的回调函数的调用者是window，所以回调函数如果是普通方法，this指向window
+         *  
+         *  数组的回调函数，都是同步的
+         *  数组回调函数的调用者都是 window
+         * 
+         */
+        var arr = [1,2,3,4];
+
+        // arr.filter(function(){
+        //     // 数组的回调函数，中的this指向window，说明调用者是window
+        //     console.log(this);//window*4
+        // });
+
+        //回调函数，谁调用的，对于使用该函数的使用者来说，是不可见的
+        // function mySetTimeout(fn,t){
+        //     var obj = {};
+        //     fn && fn.call(obj);
+        // }
+
+        // mySetTimeout(function(){
+
+        // },1000)
+
+        // setTimeout(function(){
+        //     console.log('timeout:',this);// this 打印结果是window，说明回调函数的调用者是window
+        // },1000);
+
+
+        // 2. 回调函数是同步的还是异步的？
+        //    如何判断一个回调函数是同步还是异步呢？上下及回调内进行打印输出，如果顺序没有变，说明是同步的回调
+        //    如果输出的顺序改变了，说明是异步的回调
+
+        var arr = [1,2,3,4];
+        // console.log('filter begin');
+        // 给箭头函数加指定是同步回调函数!!!!!!!!!!!!!!!!!!!!!!!!!!11
+        // arr.filter(()=>{
+        //     console.log('filter内');
+        // })
+        // console.log('filter end');
+
+
+
+        console.log('setTimeout begin');
+        // 不给箭头函数加指定是异步回调函数!!!!!!!!!!!!!!!!!!函数内部最后执行
+        setTimeout(()=>{
+            console.log('setTimeout 内');
+        },0)// 没有传时间，js会指派一个最短的时间
+        console.log('setTimeout end');
+
+        console.log(window.setTimeout);
+    </script>
+</body>
+</html>

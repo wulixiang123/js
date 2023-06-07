@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+
+    <script>
+        var myUl = document.querySelector('ul');
+        // childNodes获取myUl的所有子节点
+        var child1 = myUl.childNodes;
+        console.log('child:',child1)
+
+
+        // 函数   子元素
+        function childElements(myArr){
+            var eleArr = [];
+            // 获取所有子节点
+            var children = myArr.childNodes;
+            for(var i = 0;i<children.length;i++){
+                // nodeType返回选定节点的节点类型
+                if(children[i].nodeType === 1){
+                    eleArr.push(children[i]);
+                }
+            }
+            return eleArr;
+            console.log(children)
+        }
+    </script>
+</body>
+</html>

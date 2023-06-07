@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log(' ' && 10 + '尚硅谷' && 5 > null);//true
+
+        console.log(' ' && 10 - '尚硅谷' && 1.3245644564464 + 2.14335334533553 + 32.433433533535);// NaN
+
+        console.log(5 || 3); // 5
+
+        console.log(' ' || 10 + '尚硅谷' || 5 > null);// ' '
+
+        console.log('' || 10 - '尚硅谷' || 5 > null);//true
+
+        var b;
+        console.log(5 - undefined || 10 + undefined * null || 5 * b); // NaN
+
+        console.log(!(5 > 3));//false
+
+        console.log(!5); // false
+
+        console.log(!'哈哈');//false
+        console.log(!undefined);//true
+        console.log(!5 > 3); // false
+        console.log(!'' + 5 + !null);// 7
+        console.log(5 || 3 && '哈哈'); // 5
+        console.log((5 || 3) && '哈哈');// '哈哈'
+
+        var f;
+        console.log(!'尚硅谷' + NaN || !10 + null * '5' && '8' * !f);  // 0  
+
+        console.log(' ' + true && !('尚硅谷' - 8) || ' ' - 1 && !undefined + null); // true
+
+        console.log(!Number(' ') + true && Boolean('尚硅谷') - 8 || ' ' - 1 && !undefined + !(5 + 3)); // -7
+
+    </script>
+</body>
+
+</html>

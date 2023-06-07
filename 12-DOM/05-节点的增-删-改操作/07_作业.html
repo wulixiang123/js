@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <!-- <input type="text" name="" id=""><button>添加</button> -->
+    <div>
+
+    </div>
+    <script>
+        /**
+         * 需求：文本框输入内容，按添加，添加到ul列表中
+         * 1. 如果文本框内容为空，弹框不能为空
+         * 2. 如果是重复的名字，弹框 xxx已存在
+         * 
+         */
+        // Define the input and button elements
+        const input = document.createElement('input');
+        const button = document.createElement('button');
+        button.textContent = '添加';
+        // Define the list element
+        const list = document.createElement('div');
+        document.body.appendChild(input);
+        document.body.appendChild(button);
+        document.body.appendChild(list);
+
+        // Add event listener to button
+        button.addEventListener('click', () => {
+        // Get input value
+        const inputValue = input.value;
+        // Check if input value is empty
+        if (inputValue === '') {
+            alert('不能为空');
+            return;
+        }
+        // Check if input value already exists in list
+        const listItems = list.children;
+        for (let i = 0; i < listItems.length; i++) {
+            if (listItems[i].textContent === inputValue) {
+            alert(`${inputValue}已存在`);
+            return;
+            }
+        }
+        // Create new list item and append to list
+        const newItem = document.createElement('div');
+        newItem.textContent = inputValue;
+        list.appendChild(newItem);
+        // Clear input value
+        input.value = '';
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/utils.js"></script>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            margin-top: 50px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var myBox = document.querySelector('#box')
+        console.log(utils.css(myBox,'marginTop'));
+        utils.css(myBox,'width',600);
+        utils.css(myBox,{width:200,height:200,backgroundColor:'blue',opacity:0.3})
+        
+        console.log(utils.testType(myBox,'HTMLDivElement'))
+    </script>
+</body>
+</html>

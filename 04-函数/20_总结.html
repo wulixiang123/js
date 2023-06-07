@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * return 什么，返回什么
+       * return 后面的代码不执行
+       * 函数可以将重复的代码逻辑封装成一个函数，进行逻辑的复用
+       * 形参与实参 形参比实参个数少 会用undefined来进行占位
+       * 全局作用域 window 未定义的变量都会挂载到window中 包括闭包中未声明的变量
+       * 局部作用域 在函数中声明的变量和函数的形参是局部变量
+       * 闭包的产生 函数嵌套函数或者是函数中的引用地址被外部变量接收了
+       * 能够读取其他函数局部变量的函数,称为闭包也叫内部函数
+       * fn()执行fn函数 fn()()执行子函数 fn()()()执行孙函数
+       * var 只声明不赋值 返回undefined
+       * function,既声明又赋值可以预解析
+       * 如果var和function重名,function权重高
+       * 变量提声就是预解析
+       * var与function不同的是 var变量名重复 会忽略后面所有的重名var
+       * function函数名重复,最后面的函数会覆盖前面的函数
+       * 匿名函数 就是未给函数定义名字的 这样会报错 但是加了()就好了 或者加!&+-~&都可 需要注意匿名函数需要在最后加括号!!!!!!!!
+       * 如何从外部读取局部变量 先return一下 子函数 的值,然后调用父函数下的子函数可以用父函数()();
+       */
+      a();
+      function a() {
+        document.write(111);
+      }
+      a();
+    </script>
+    <script>
+      function f1() {
+        var n = 999;
+        function f2() {
+          alert(n);
+        }
+        //返回一个f2的方法体
+        return f2;
+      }
+      f1()();
+
+      //   var result = f1();
+      //   result();
+    </script>
+
+    <script>
+      function f1() {
+        var n = 999;
+        nAdd = function () {
+          n += 1;
+        };
+
+        function f2() {
+          alert(n);
+        }
+        return f2;
+      }
+
+      var result = f1();
+      result(); // 999
+      nAdd();
+      result(); // 1000
+      result();//1000
+    </script>
+  </body>
+</html>

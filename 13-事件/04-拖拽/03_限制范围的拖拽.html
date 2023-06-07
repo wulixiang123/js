@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../12-DOM/07-操作元素的样式/js/utils.js"></script>
+    <style>
+        #box{
+            position: absolute;
+            left:0;
+            top:0;
+            width:100px;
+            height:100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">123</div>
+    <script>
+        var oBox = document.querySelector('#box');
+
+        oBox.onmousedown = function(e){
+            e = e || window.event;
+            // 目标：计算disX 和 disY
+            var disX = e.clientX - utils.css(oBox, 'left');
+            var disY = e.clientY - utils.css(oBox, 'top');
+
+            document.onmousemove = function(e){
+                // 目标：实时计算 最新的left 和top值，并赋值
+                let left = e.clientX - disX;
+                var top = e.clientY - disY;
+                // if(left < 0){
+                //     left = 0;
+                // }
+                left = Math.max(0,left);
+                top = Math.max(0, top);
+
+                var maxLeft = (document.documentElement.clientWidth || document.body.clientWidth) - oBox.clientWidth;
+                // if(left > maxLeft){
+                //     left = maxLeft;
+                // }
+                left = Math.min(maxLeft, left);
+
+                utils.css(oBox, {left:left, top:top});
+                return false;
+            }
+
+            document.onmouseup = function(){
+                document.onmousemove = document.onmouseup = null;
+            }
+        }
+    </script>
+</body>
+</html>

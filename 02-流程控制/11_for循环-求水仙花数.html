@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        for(var i = 100;i < 1000;i++){
+            var ge = i % 10;
+            var shi = parseInt(i / 10)%10;
+            var bai = parseInt(i / 100);
+           
+            if(ge**3 + shi**3 + bai**3 === i){
+                console.log(i);
+            }
+        }
+        // for (var i = 100; i < 1000; i++) {
+        //     var ge = i % 10;
+        //     var shi = parseInt(i / 10) % 10;
+        //     var bai = parseInt(i / 100);
+        //     if(ge**3 + shi**3 + bai**3 === i){
+        //         console.log(i);
+        //     }
+        // }
+    </script>
+
+
+    <!-- <script>
+         /***
+         * 水仙花数：三位数  百位的立方 + 十位的立方 + 个位的立方 = 当前数
+         */
+        for(var i = 100;i<1000;i++){
+            var ge = parseInt(i%10)
+            var shi = parseInt(i/10)%10
+            var bai = parseInt(i%100)
+            if(ge**3+shi**3+bai**3===i){
+                console.log(i)
+            }
+        }
+    </script> -->
+</body>
+</html>

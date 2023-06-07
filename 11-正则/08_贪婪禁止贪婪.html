@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         *  正则表达式也是默认贪婪的
+         *  
+         *  贪婪模式：只要符合条件，尽可能匹配多的内容
+         *  
+         *  禁止贪婪：?
+         *  ? 有两层含义：
+         *  1. 数量词： 0 或 1个
+         *  2. 贪婪模式中，标识禁止贪婪： 尽可能匹配少的内容
+         */
+
+         var str = '<div><div>1111ad</div><div>2222</div></div>';
+         var reg = /<div>(.*)<\/div>/;
+
+         var result = str.match(reg);
+         console.log(result);
+         
+        //  禁止贪婪
+        var reg2 = /<div>(.*?)<\/div>/;
+        var result2 = str.match(reg2);
+        console.log(result2);
+    </script>
+</body>
+</html>

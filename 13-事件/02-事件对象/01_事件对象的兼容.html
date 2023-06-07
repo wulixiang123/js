@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>111</div>
+    <script>
+        /**
+         * 事件三要素：
+         * 1. 事件绑定的主体
+         * 2. 事件
+         * 3. 事件处理函数
+         * 
+         */
+        var myDiv = document.querySelector('div')
+        myDiv.onclick = function(a){// a是div点击事件发生时产生的“事件对象”，记录了该事件发生时所有的细节。
+            console.log(arguments)
+            console.log(a)
+            // 事件对象有兼容性的问题
+            // 在标准浏览器[非IE678]，通过事件处理函数的第一个形参获取
+            // 在IE678下，第一个形参是undefined。window.event
+            a = a || window.e// 事件对象的兼容处理方式
+            console.log(a)
+        }
+        
+    </script>
+</body>
+</html>

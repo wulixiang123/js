@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 任何一个函数都有一个prototype属性，原型 (prototype)就是函数的一个属性，它指向一个对象。 原型就是具有公共属性和方法的对象。
+         * 1. 每一个函数都有一个天生自带的属性 prototype[显示原型], 称为该函数的原型对象
+         * 2. 每一个prototype原型对象上，都有一个天生自带的属性 constructor[构造器],指向当前函数本身
+         * 3. 每一个对象都有一个天生自带的属性 __proto__[隐式原型],指向所属类[构造函数]的原型对象
+         */
+
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        var p1 = new Person('张三', 19);
+        console.log(p1.__proto__ === Person.prototype);//true
+        console.log(Person === Person.prototype.constructor);//true
+
+        // dir dictionary 目录
+        console.dir(Person);
+        console.log(p1);
+        
+    </script>
+</body>
+</html>

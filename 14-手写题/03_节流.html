@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>快速点击</button>
+    <script>
+        var myButton = document.querySelector('button')
+        var timer  = null
+        // myButton.onclick=function(){
+        //     if(timer){
+        //         return
+        //     }
+        //     timer = setTimeout(() => {
+        //         console.log(1)
+        //         timer = null
+        //     }, 1000);
+        // } 
+
+
+        function throttle(fn,delay = 1000){
+            var timer = null
+            return function(){
+                if(timer){
+                    return
+                }
+                timer = setTimeout(() => {
+                fn.apply(this,arguments)
+                   timer = null 
+                }, delay);
+            }
+        }
+
+        myButton.onclick = throttle(function(e){
+            console.log(this.innerHTML)
+            console.log(e.target.innerHTML)
+        },2000)
+    </script>
+</body>
+</html>

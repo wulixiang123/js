@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    sajdfkljasdklfjasdl
+    asjkdlfjasdkl;fja
+    kasldfjkasl;djf
+    asjkfjasdk;lfjasd
+    ajksldfjaksld;fjas
+    kjlasdfjk;ldasjf
+    jkalsdjflk;asf
+    sajdfkljasdklfjasdl
+    asjkdlfjasdkl;fja
+    kasldfjkasl;djf
+    asjkfjasdk;lfjasd
+    ajksldfjaksld;fjas
+    kjlasdfjk;ldasjf
+    jkalsdjflk;asf
+    sajdfkljasdklfjasdl
+    asjkdlfjasdkl;fja
+    kasldfjkasl;djf
+    asjkfjasdk;lfjasd
+    ajksldfjaksld;fjas
+    kjlasdfjk;ldasjf
+    jkalsdjflk;asf
+    sajdfkljasdklfjasdl
+    asjkdlfjasdkl;fja
+    kasldfjkasl;djf
+    asjkfjasdk;lfjasd
+    ajksldfjaksld;fjas
+    kjlasdfjk;ldasjf
+    jkalsdjflk;asf
+    sajdfkljasdklfjasdl
+    asjkdlfjasdkl;fja
+    kasldfjkasl;djf
+    asjkfjasdk;lfjasd
+    ajksldfjaksld;fjas
+    kjlasdfjk;ldasjf
+    jkalsdjflk;asf
+    sajdfkljasdklfjasdl
+    asjkdlfjasdkl;fja
+    kasldfjkasl;djf
+    asjkfjasdk;lfjasd
+    ajksldfjaksld;fjas
+    kjlasdfjk;ldasjf
+    jkalsdjflk;asf
+    sajdfkljasdklfjasdl
+    asjkdlfjasdkl;fja
+    kasldfjkasl;djf
+    asjkfjasdk;lfjasd
+    ajksldfjaksld;fjas
+    kjlasdfjk;ldasjf
+    jkalsdjflk;asf
+    sajdfkljasdklfjasdl
+    asjkdlfjasdkl;fja
+    kasldfjkasl;djf
+    asjkfjasdk;lfjasd
+    ajksldfjaksld;fjas
+    kjlasdfjk;ldasjf
+    jkalsdjflk;asf
+    sajdfkljasdklfjasdl
+    asjkdlfjasdkl;fja
+    kasldfjkasl;djf
+    asjkfjasdk;lfjasd
+    ajksldfjaksld;fjas
+    kjlasdfjk;ldasjf
+    jkalsdjflk;asf
+    sajdfkljasdklfjasdl
+    asjkdlfjasdkl;fja
+    kasldfjkasl;djf
+    asjkfjasdk;lfjasd
+    ajksldfjaksld;fjas
+    kjlasdfjk;ldasjf
+    jkalsdjflk;asf
+    sajdfkljasdklfjasdl
+    asjkdlfjasdkl;fja
+    kasldfjkasl;djf
+    asjkfjasdk;lfjasd
+    ajksldfjaksld;fjas
+    kjlasdfjk;ldasjf
+    jkalsdjflk;asf
+    sajdfkljasdklfjasdl
+    asjkdlfjasdkl;fja
+    kasldfjkasl;djf
+    asjkfjasdk;lfjasd
+    ajksldfjaksld;fjas
+    kjlasdfjk;ldasjf
+    jkalsdjflk;asf
+    sajdfkljasdklfjasdl
+    asjkdlfjasdkl;fja
+    kasldfjkasl;djf
+    asjkfjasdk;lfjasd
+    ajksldfjaksld;fjas
+    kjlasdfjk;ldasjf
+    jkalsdjflk;asf
+    sajdfkljasdklfjasdl
+    asjkdlfjasdkl;fja
+    kasldfjkasl;djf
+    asjkfjasdk;lfjasd
+    ajksldfjaksld;fjas
+    kjlasdfjk;ldasjf
+    jkalsdjflk;asf
+    <button>回到顶部</button>
+    <script>
+        /**
+         * html: document.documentElement
+         * 
+         * body: document.body
+         * 
+         */
+
+         console.log(document.documentElement.clientHeight);//
+         console.log(document.body.clientHeight);
+
+         function Win(attr,value){
+            if(typeof value === 'undefined'){
+                return document.documentElement[attr] || document.body[attr]
+            }
+            document.documentElement[attr] = value
+            document.body[attr] = value;
+         }
+         console.log(Win('clientHeight'));
+         var myButton = document.querySelector('button')
+         myButton.onclick = function(){
+            Win('scrollTop','0px');
+         }
+    </script>
+</body>
+</html>

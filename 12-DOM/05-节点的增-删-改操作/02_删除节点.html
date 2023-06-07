@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h2>明天放假</h2>
+        <span>去陵园玩儿啊</span>
+        <h1>你猜我被删除了没?</h1>
+    </div>
+
+    <script>
+        /**
+         *  删除： delete、remove
+         *  
+         *  父节点.removeChild(子节点)
+         */
+        var myDiv = document.querySelector('div');
+        var mySpan = document.querySelector('span')
+        var myH1 = document.querySelector('h1')
+        var myH2 = document.querySelector('h2')
+        myDiv.removeChild(myH1)
+    </script>
+</body>
+</html>

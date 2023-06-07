@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(){
+            var  a = 10;
+            return function innerFn(){
+                console.log(++a);
+            }
+        }
+        console.log(fn,typeof fn);
+
+        var outFn = fn();
+        console.log(outFn,typeof outFn);
+        outFn();//11
+        outFn();//12
+        fn()();//11
+        fn()();//11
+
+        /**
+         * fn()执行fn函数,返回子函数
+         * fn()()执行子函数,返回孙函数
+         * fn()()()执行孙函数,返回重孙函数
+         */ 
+    </script>
+
+    <script>
+        function fn111(){
+            var b =10;
+            function fn222(){
+                console.log(++b);
+            }
+            window.outFn = fn222;
+        }
+        fn111();
+        console.log('outFn:',outFn);
+
+        function f1(){
+            var n = 999;
+            nAdd = function(){
+                n = n+1;
+            }
+            function f2(){
+                alert(n);
+            }
+            return f2;
+        }
+        var result = f1();
+        result();//999
+        nAdd();
+        result();//1000
+    </script>
+</body>
+</html>

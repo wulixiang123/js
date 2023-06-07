@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .wrapper {
+            position: relative;
+            width: 800px;
+            height: 300px;
+            border: 5px solid red;
+            margin: 100px auto;
+        }
+
+        .wrapper .swipper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .wrapper .swipper li {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .wrapper .swipper li.active {
+            z-index: 1;
+        }
+
+        .wrapper .swipper li img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .wrapper .dots {
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            z-index: 10;
+            margin-left: -100px;
+            width: 200px;
+            height: 30px;
+            text-align: center;
+        }
+
+        .wrapper .dots li {
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            border-radius: 50%;
+            background-color: gray;
+            opacity: 70%;
+            border: 1px solid red;
+            cursor: pointer;
+        }
+
+        .wrapper .dots li.active {
+            background-color: red;
+        }
+
+        .wrapper .btn {
+            position: absolute;
+            top: 50%;
+            z-index: 10;
+            margin-top: -22px;
+            width: 26px;
+            height: 44px;
+            background-color: black;
+            color: white;
+            line-height: 44px;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .wrapper .leftBtn {
+            left: 0;
+        }
+
+        .wrapper .rightBtn {
+            right: 0;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper" id="wrapper1">
+        <ul class="swipper">
+            <li class="active"><img src="./img/1.jpg" alt=""></li>
+            <li><img src="./img/2.jpg" alt=""></li>
+            <li><img src="./img/3.jpg" alt=""></li>
+            <li><img src="./img/4.jpg" alt=""></li>
+            <li><img src="./img/5.jpg" alt=""></li>
+        </ul>
+        <ul class="dots">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="leftBtn btn">&lt;</div>
+        <div class="rightBtn btn">&gt;</div>
+    </div>
+
+
+    <script src="./js/utils.js"></script>
+    <script src="./js/animate.js"></script>
+    <script>
+        function Swipper(id, duration) {
+            this.oWrapper = document.querySelector('#' + id);
+            this.oLis = this.oWrapper.querySelectorAll('.swipper li');
+            this.oDots = this.oWrapper.querySelectorAll('.dots li');
+            this.leftBtn = this.oWrapper.querySelector('.leftBtn');
+            this.rightBtn = this.oWrapper.querySelector('.rightBtn');
+            this.index = 0;// 协同小圆点和图片的大总管
+            this.count = this.oLis.length - 1; // index 索引值的上限
+            this.timer = null;// 定时器
+
+            this.duration = duration;
+            // 执行绑定事件的初始化方法
+            this.init();
+        }
+
+        Swipper.prototype.focus = function () {
+            for (var i = 0; i < this.oLis.length; i++) {
+                var curLi = this.oLis[i];
+                var curDot = this.oDots[i];
+                if (i === this.index) {// 应该显示
+                    utils.css(curLi, { zIndex: 1 });
+                    animate(curLi, { opacity: 1 }, 300);
+                    curDot.className = 'active';
+                } else {// 其他不显示的
+                    // 0. zindex :0 
+                    // 1. 图片透明度变为0
+                    // 2. 小圆点class 设为 ''
+                    utils.css(curLi, { zIndex: 0 });
+                    animate(curLi, { opacity: 0 }, 300);
+                    curDot.className = '';
+                }
+            }
+        }
+        Swipper.prototype.autoMove = function () {
+            console.log('autoMove: ',this);
+            // 控制下标在数组范围之内
+            this.index++;
+            if (this.index > this.count) {
+                this.index = 0;
+            }
+            // 根据下标让对应下标的图片显示，让对应下标的小圆点变红
+            // 图片：让当前下标的图片，透明度从0-1，让其他的图片透明度变成0
+            this.focus();
+        }
+        /**
+         * init 初始化元素事件的方法
+         */
+        Swipper.prototype.init = function () {
+            var _this = this;
+            // 移入
+            this.oWrapper.onmouseenter = function () {
+                clearInterval(_this.timer);
+            }
+            // 移出
+            this.oWrapper.onmouseleave = function () {
+                _this.timer = setInterval(function(){
+                    _this.autoMove();
+                }, _this.duration);
+            }
+
+            this.leftBtn.onclick = function () {
+                _this.index--;
+                if (_this.index < 0) {
+                    _this.index = _this.count;
+                }
+                _this.focus();
+            }
+            this.rightBtn.onclick = function(){
+                _this.autoMove();
+            };
+            // 点击小圆点切换
+            for (var i = 0; i < this.oDots.length; i++) {
+                this.oDots[i].index = i;// 自定义属性绑定索引值
+                this.oDots[i].onclick = function () {
+                    // 大总管     当前小圆点
+                    _this.index = this.index; // 获取当前点击的小圆点赋值给大总管index
+                    _this.focus();// 根据index，焦点对其
+                }
+            }
+        }
+
+        Swipper.prototype.run = function(){
+            var _this = this;
+            this.timer = setInterval(function(){
+                _this.autoMove();
+            }, this.duration);
+        }
+        
+        var s1 = new Swipper('wrapper1', 2000);
+        s1.run();
+    </script>
+</body>
+
+</html>

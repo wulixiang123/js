@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="myDiv">
+        <p>当前第 1 张 / 总共 5 张</p>
+        <img src="" alt="" width="300px"height="420px">
+        <div>
+            <button>上一张</button>
+            <button>下一张</button>
+        </div>
+    </div>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #myDiv{
+            width: 500px;
+            height: 500px;
+            margin: 100px auto;
+            background-color: cornflowerblue;
+        }
+        #myDiv p{
+            height: 15px;
+            line-height: 15px;
+            text-align: center;
+        }
+        #myDiv img{
+            display: block;
+            text-align: center;
+            width: 300px;
+            height: 420px;
+            margin: 20px auto;
+        }
+        #myDiv div{
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        var oMsg = document.querySelector('#myDiv p');
+        var oImg = document.querySelector('#myDiv img');
+        var obtns = document.querySelectorAll('#myDiv div button');
+        // console.log(oMsg,oImg,obtns)
+        var btn1 = obtns[0]
+        var btn2 = obtns[1]
+        console.log(btn1,btn2);
+        var imgarr = ['./images/1.png','./images/2.png','./images/3.png','./images/4.png','./images/5.png']
+        var index = 0
+        oImg.src = imgarr[index];
+        btn1.onclick = function(){
+            index--
+            // if(index<0){
+            //     index = imgarr.length-1
+            // }
+            index = Math.max(0,index);
+            oImg.src = imgarr[index];
+            oMsg.innerText = '当前第 '+ (index + 1) +' 张 / 总共 '+ imgarr.length +' 张';
+        }
+        
+        btn2.onclick = function(){
+            index++
+            if(index>imgarr.length-1){
+            index = 0
+        }
+        oImg.src = imgarr[index];
+        oMsg.innerText = '当前第 '+ (index + 1) +' 张 / 总共 '+ imgarr.length +' 张';
+        }
+       
+    </script>
+</body>
+</html>

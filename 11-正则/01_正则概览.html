@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         /**
+         * 正则表达式：
+         * 作用：对字符串进行 增 删 该 查的操作。初级开发者用的最多的是查的操作
+         *      比如：验证手机号、验证身份证号、验证邮箱都是正则 查操作
+         * 
+         * test: 测试，如果满足正则条件，就返回true，否则返回false
+         * 
+         * 创建正则方式：
+         * 1. 构造函数： 
+         *    语法：var reg = new RegExp(规则,模式修正符);
+         *    (1)模式修正符：i 忽略大小写 
+         *                   m  换行也能匹配
+         *                   g  global 全局匹配
+         *       注意：模式修正符，可以同时写多个，部分先后顺序
+         */
+        var reg1 = new RegExp('a');// 字符串中是否有a
+        var str1 = 'abcdef';
+        var result = reg1.test(str1);//检查字符串str1中是否有a，true
+
+        reg1 = new RegExp('ab');// 是否有ab，并且ab是连续出现的
+        a = 'cdsfabsf';
+        b = 'defeafef12';
+        result = reg1.test(a);//检查a中字符串中是否有连续的小写ab==》true
+        console.log('result:',result);
+        result  =reg1.test(b);//检查b中字符串中是否有连续小写ab==>false
+        console.log('result:',result);
+
+        reg = new RegExp('ab','i');// i ignore 忽略大小写
+        a = 'Abtdfsf';
+        console.log(reg.test(a));
+    </script>
+</body>
+</html>

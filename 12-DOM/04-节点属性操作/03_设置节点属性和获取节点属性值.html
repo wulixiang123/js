@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "box" class="swipper" school="尚硅谷">我是div</div>
+    <span>我是span</span>
+    <input type="checkbox" name="hobby" value="篮球">篮球
+    <button>获取表单的值</button>
+    <button>设置表单的值</button>
+
+    <script>
+         /**
+         * 获取节点属性：getAttribute('属性名') 获取属性值
+         *  get 获取
+         *  Attribute  属性
+         * 
+         * 
+         * 设置属性：setAttribute('属性名', 属性值)
+         */
+        var myDiv = document.querySelector('div');
+        console.log('id:',myDiv.id)
+        console.log('id:',myDiv.getAttribute('id'));
+
+        console.log('class:',myDiv.className);
+        console.log('class:',myDiv.getAttribute('class'));
+
+        console.log('school自定义属性:',myDiv.school);
+        console.log('school:',myDiv.getAttribute('school'));
+
+        /**
+         * 设置span的属性
+         * 
+         */
+        // 1. 获取span
+        var mySpan = document.querySelector('span')
+        mySpan.setAttribute('id','box1')
+        mySpan.setAttribute('class','a1 a2');
+        mySpan.setAttribute('user','liu')
+
+
+         // 能否操作表单属性呢？
+         var getbtn = document.querySelectorAll('button')[0]
+         var setbtn = document.querySelectorAll('button')[1]
+         var myInput = document.querySelector('input');
+         getbtn.onclick = function(){
+            console.log(myInput.value);
+            console.log(myInput.checked);
+            console.log(myInput.type);
+
+            // getAttribute 只能获取标签身上有的属性
+            console.log(myInput.getAttribute('value'))
+            console.log(myInput.getAttribute('checked'))
+            console.log(myInput.getAttribute('type'))
+         }
+
+         setbtn.onclick = function(){
+            myInput.setAttribute('value','玻璃球');
+            myInput.setAttribute('checked',true);
+         }
+    </script>
+</body>
+</html>

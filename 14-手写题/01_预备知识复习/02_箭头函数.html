@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // // 普通函数的this，只跟调用者有关，调用的时候，.前面是谁
+        // function fn(){
+        //     console.log(this,arguments)
+        // }
+        // fn()
+
+        // // 箭头函数没有arguments，也没有this, 箭头函数中的this，只跟函数在哪里定义有关，使用的是上级作用域中的函数的this。
+        // // arguments可以沿着作用域链，使用上级函数作用域中的arguments
+        // var a = ()=>{
+        //     console.log(this)//window
+        //     // console.log(arguments)//报错 window没有arguments
+        // }
+        // a()
+
+
+        function a1(){
+            var a2 = ()=>{
+                console.log(this)//window 使用的上级函数的this
+                console.log(arguments)//[1,2,3] 使用的上级函数的arguments
+            }
+            a2()
+        }
+        a1(1,2,3)
+
+
+        var obj = {
+            name:'我改变了a1的指向'
+        }
+        a1.call(obj,4,5,6)
+    </script>
+</body>
+</html>

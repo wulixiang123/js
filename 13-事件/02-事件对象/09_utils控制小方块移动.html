@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../12-DOM/07-操作元素的样式/js/utils.js"></script>
+    <style>
+        #box {
+            position: absolute;
+            left: 120px;
+            top: 150px;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    
+    <script>
+        var myBox = document.querySelector('#box');
+        document.onkeyup = function(e){
+            e = e || window.event
+            var speed = 5
+
+            switch (e.keyCode){
+                case 37:// 向左移动
+                var oldright = myBox.offsetLeft
+                var newRight = oldright - speed
+                myBox.style.left = newRight +'px'
+                    break;
+
+                case 38:// 向上移动
+                var oldtop = myBox.offsetTop
+                var newTop = oldtop - speed
+                myBox.style.top = newTop +'px'
+                    break;
+                case 39:// 向右移动
+                // 1. 获取原来的left值
+                // var oldleft = myBox.offsetLeft
+
+                var oldleft = utils.css(myBox,'offsetLeft')
+                console.log(oldleft)
+                // 2. 增加一定的数量
+                var newLeft = oldleft + speed
+                // 3. 把新的left值，赋值给oBox的left属性
+                // myBox.style.left = newLeft +'px'
+
+                utils.css(myBox,'left',newLeft)
+                    break;
+
+                case 40:// 向下移动
+                var oldbottom = myBox.offsetTop
+                var newBottom = oldbottom + speed
+                myBox.style.top = newBottom +'px'
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = Number(prompt("请输入三位数"));
+        var gewei = a %10;
+        var shiwei = parseInt(a/10)%10;
+        var baiwei = parseInt(a/100);
+        var sum = gewei + shiwei + baiwei;
+        alert("各个数位的和是" + sum);
+    </script>
+
+
+
+    <script>
+        var a = 1;
+        var b = a-- + a + --a + a + a++ + ++a +a + --a + a + a + a-- + a
+        console.log(b)
+    </script>
+
+
+
+    <script>
+         var num = 678;
+        var ge = num % 10;
+        // var shi = parseInt((num % 100)/10);
+        var shi = parseInt(num / 10) % 10;
+        var bai = parseInt(num / 100);
+        console.log('ge: ', ge);
+        console.log('shi: ', shi);
+        console.log('bai: ', bai);
+    </script>
+</body>
+</html>

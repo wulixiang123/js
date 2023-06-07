@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         *  hasOwnProperty: has 有 own 私有的 Property 属性
+         * 
+         */
+        function Person(name, age){
+            this.name = name;
+            this.age = age;
+            this.say = function(){
+                console.log(this.name, this.age);
+            }
+        }
+        Person.prototype.eat = function(){
+            console.log('eat');
+        }
+        Person.prototype.className = '230222';
+
+        var p1 = new Person('老张',20);
+        var p2 = new Person('老李',30);
+
+        console.log(p1.name,p1.age,p1.say()); // p1的私有属性
+        console.log('私有属性： ' , 'name' in p1, 'age' in p1, 'say' in p1);
+
+        console.log(p1.eat(), p1.className); // p1 的公有属性
+        console.log('公有属性： ', 'eat' in p1, 'className' in p1);
+
+        // 以上四行console，说明 in 只是检测一个属性或方法是不是对象的属性或方法，不管是公有还是私有。言外之意，in无法区分属性是公有属性还是私有属性
+
+        // hasOwnProperty 可以检测一个属性是否是对象的私有属性
+        console.log('hasOwnProperty: ', p1.hasOwnProperty('name'), p1.hasOwnProperty('age'),p1.hasOwnProperty('say'),p1.hasOwnProperty('className'),p1.hasOwnProperty('eat'), p1.hasOwnProperty('sdfsadklfj'))
+
+        /**
+         *  需求：自定义一个函数，实现检测变量的公有属性，如果是公有属性返回true ，否则返回false
+         * 
+         */
+
+        function hasPubProperty(obj, attr){
+            // 什么是公有属性？ 是它的属性，却不是它的私有属性
+            return attr in obj && !obj.hasOwnProperty(attr);
+        }
+
+        console.log(hasPubProperty(p1,'name'), hasPubProperty(p1,'eat'), hasPubProperty(p1,'className'));
+
+        
+
+    </script>
+</body>
+</html>

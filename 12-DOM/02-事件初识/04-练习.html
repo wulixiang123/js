@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>球杆</p>
+    <p>购买数量:
+        <button>-</button>
+        <input type="text"name="price"value="1">
+        <button>+</button>
+    </p>
+    <script>
+        /**
+         * 1. 减少数量的时候，不能少于 1 个
+         * 2. 增加数量的时候，不能超过库存 5
+         * 
+         */
+        var myP = document.querySelectorAll('button')
+        var myInput = document.querySelector('input')
+        var btn1 = myP[0]
+        var btn2 = myP[1]
+        var kucun = 5
+        btn1.onclick = function(){
+            var num = myInput.value;
+            num--
+            if(num<1){
+                num=1
+            }
+            myInput.value = num
+        }
+        btn2.onclick = function(){
+            var num = myInput.value;
+            num++
+            if(num>kucun){
+                num = kucun
+            }
+            myInput.value = num
+        }
+    </script>
+</body>
+</html>

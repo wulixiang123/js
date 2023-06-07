@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 直接赋值
+        // console.log(typeof 123); // "number"
+        // console.log(typeof 'abc');// "string"
+        // console.log(typeof true); // "boolean"
+        // console.log(typeof function(){}); // "function"
+        // console.log(typeof undefined);//"undefined"
+        // console.log(typeof null);// "object";
+
+        // 下面两种 for in 遍历
+        // console.log(typeof []);// "object"
+        // console.log(typeof {});// "object"
+
+        function deepClone(obj){
+            if(typeof obj !=='object'||obj === null){
+                return obj
+            }
+            // 如果obj是一个数组 那么执行{}
+            var res = obj instanceof Array?[]:{};
+            for(var attr in obj){
+                // hasOwnProperty用来判断一个属性是定义在对象本身而不是继承自原型链的。
+                // 如果obj的
+                if(obj.hasOwnProperty(attr)){
+                    res[attr] = deepClone(obj[attr])
+                }
+            }
+            return res
+        }
+
+        var obj = {
+            name:'atguigu',
+            sex:'boy',
+            age:{
+                realAge:35,
+                openAge:28
+            },
+            classMate:[2,3,45,5]
+        }
+
+        var obj2 = deepClone(obj)
+
+        console.log(obj,obj2)
+        obj2.name = '尚硅谷'
+        obj2.age.realAge = 58
+        obj2.classMate[0] = 999
+
+        console.log(obj,obj2)
+    </script>
+</body>
+</html>

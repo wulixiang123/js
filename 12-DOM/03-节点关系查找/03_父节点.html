@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div>
+            <ul>
+                <li>111</li>
+                <li>222</li>
+                <li>333</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        /**
+         *  找一个节点的父节点，父节点如果有，一定是一个元素节点
+         *  1. parentNode： 获取一个节点的父节点
+         */
+        var myLi = document.querySelector('li:nth-child(1)');
+        var baba = myLi.parentNode;
+        console.log('parentNode:',baba,baba.parentNode)
+        console.log('parentNode:',baba,baba.parentNode.parentNode)
+        console.log('parentNode:',baba,baba.parentNode.parentNode.parentNode)
+
+
+        /**
+         * 2. 兄弟节点相关
+         * 
+         *  previous：以前的
+         *  sibling: 兄弟
+         *  next: 下一个
+         * 
+         */
+
+         var myLi = document.querySelector('li:nth-child(2)');
+         console.log('previousSibling:',myLi.previousSibling);//空格也是节点 所以打印的是空格 所以是text
+         console.log('previousElementSibling:',myLi.previousElementSibling);
+
+         console.log('nextSibling:',myLi.nextSibling);
+         console.log('nextElementSibling',myLi.nextElementSibling)
+         
+    </script>
+</body>
+</html>

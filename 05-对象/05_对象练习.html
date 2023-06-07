@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj1 = {}
+        var obj2 = {}
+        console.log(obj1===obj2);//false
+        var obj3 = {
+            name:'atguigu',
+            age:18
+        }
+        var obj4 = {
+            ...obj3
+        }
+        console.log(obj3===obj4);//false
+
+        var obj5 = {
+            name:'尚硅谷',
+            age:28
+        }
+        console.log(obj3===obj5);//false
+    </script>
+</body>
+</html>

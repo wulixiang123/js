@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p>我是p标签</p>
+    </div>
+
+    <script>
+        var myDiv = document.querySelector('div')
+        var myP = document.querySelector('p')
+
+        var newNode1 = document.createElement('span');
+        newNode1.innerHTML = '1111';
+        // 向元素前面追加节点
+        myDiv.insertBefore(newNode1,myP);
+        
+        var newNode2 = document.createElement('span')
+        newNode2.innerHTML = '2222'
+        // 向元素后面追加节点
+        myDiv.appendChild(newNode2)
+    </script>
+</body>
+</html>

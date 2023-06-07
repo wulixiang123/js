@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         *  预解析[变量提声]:
+         * 
+         */
+
+        var a = 10;
+        var d = 40;
+        function fn(a,b){
+            console.log(a);
+            console.log(c);
+            f1();
+            var c = 30;
+            a = 100;
+            b = 20;
+            d = 50;
+            console.log(a,b,c,d);
+            function f1(){
+                console.log('f1被调用了')
+            }
+        }
+        fn(11,22);
+        console.log(a);
+        console.log(d);
+    </script>
+</body>
+</html>

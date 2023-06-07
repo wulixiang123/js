@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            position: absolute;
+            left:100px;
+            top:100px;
+            width:100px;
+            height:100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">12312312</div>
+    <script>
+        /**
+         *  拖拽前提：
+         *  元素必须有定义属性
+         * 
+         *  拖拽涉及到的事件：
+         *  1. onmousedown
+         *  2. onmousemove
+         *  2. onmouseup
+         * 
+         */
+
+        var oBox = document.querySelector('#box');
+        oBox.onmousedown = function(e){
+            e = e || window.event;
+            // 目标：计算disX 和 disY
+            var disX = e.clientX - oBox.offsetLeft;
+            var disY = e.clientY - oBox.offsetTop;
+            console.log(disX, disY);
+
+            document.onmousemove = function(e){
+                e = e || window.event;
+                var left = e.clientX - disX;
+                var top = e.clientY - disY;
+                // 赋值left和top值即可
+                oBox.style.left = left + 'px';
+                oBox.style.top = top + 'px';
+                // 文字默认行为就是可以拖拽，取消默认行为
+                e.preventDefault();
+            }
+            document.onmouseup = function(){
+                document.onmousemove = document.onmouseup  = null;
+            }
+        }
+    </script>
+</body>
+</html>

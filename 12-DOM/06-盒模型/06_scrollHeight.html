@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer{
+            width: 400px;
+            height: 300px;
+            border: 3px solid red;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+
+    </div>
+    
+    <script>
+        var outer = document.getElementById('outer')
+        for(var i = 0;i<400;i++){
+            var myP = document.createElement('p');
+            myP.innerHTML = i
+            outer.appendChild(myP);
+        }
+
+         // 获取 scrollHeight: 真实内容的高度(包含溢出) + 上填充(padding)
+        console.log(outer.clientHeight)
+        console.log(outer.scrollHeight)
+
+
+         // 滚动区可以滚过的最大距离，scrollHeight- clientHeight
+         var maxHeight = outer.scrollHeight - outer.clientHeight;
+         console.log(maxHeight);
+
+         // 滚动条滚动的时候触发
+         outer.onscroll = function(){
+            console.log('我滚了',outer.scrollTop);
+            if(outer.scrollTop >= maxHeight-20){
+                alert('滚到底了');
+            }
+         }
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg1{
+            background-color: aqua;
+        }
+        .bg2{
+            background-color: #bfa;
+        }
+        .bg3{
+            background-color: cadetblue;
+        }
+        .base{
+            width: 300px;
+            height: 100px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="base">
+
+    </div>
+
+    <script>
+        /***
+         * 如何操作元素的class属性: className 
+         * 
+         */
+        var bgs = ['bg1','bg2','bg3'];
+        var oDiv = document.querySelector('div');
+        oDiv.onclick = function(){
+             // 计算0-2随机数       Math.random() * 3 的意思是0.0-3之间的数
+            // Math.floor 向下取整
+            var index = Math.floor(Math.random() * 3);
+            // var bgClass = bgs[index];
+            // //base后面必须有空格
+            // oDiv.className = "base " + bgClass;
+            //base后面必须有空格 因为class需要空出来才能取到属性
+            oDiv.className = "base " + bgs[index];
+        }
+    </script>
+</body>
+</html>

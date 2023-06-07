@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        var a = [1,5,3,2,1,5,3,99,4];
+        var b = [];
+        for(var i = 0;i < a.length;i++){
+            var c = a[i];
+            var d = true;
+            for(var j = 0;j<b.length;j++){
+                if(c===b[j]){
+                    d = false;
+                    break;
+                }
+            }
+            if(d){
+                b[b.length]=c;
+            }
+        }
+        console.log(a,b);
+    </script> -->
+
+    <script>
+        var arr = [1,5,3,2,1,5,3,99,4];
+        for(var i = 0;i<arr.length;i++){
+            console.log(arr[i]);
+            for(var j = i+1;j<arr.length;j++){
+                //判断两个元素是否相等
+                if(arr[i]==arr[j]){
+                    //如果显相等则证明出现了重复的元素,则删除了j对应的元素
+                    arr.splice(j,1);
+                    //当删除了当前j所在的元素以后,后边的元素会自动补位
+                    //此时将不会再比较这个元素
+                    j--;
+                }
+            }
+        }
+        console.log(arr);
+    </script>
+</body>
+</html>

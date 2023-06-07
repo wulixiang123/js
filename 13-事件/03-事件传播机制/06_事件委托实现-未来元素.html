@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <button>新增一个li 444</button>
+    <script>
+        /**
+         * 事件委托：元素不直接绑定给子元素，而是绑定给父级[祖先]元素，利用事件的冒泡机制去触发。
+         * 
+         */
+
+         var myLi = document.querySelectorAll('li')
+         var myButton = document.querySelector('button')
+         var myUl = document.querySelector('ul')
+
+        //  dom0 事件委托
+        myUl.onclick = function(e){
+            e = e || window.event;
+            // console.log('myLi触发了')
+
+            // e.target获取事件源对象
+            // console.log(e.target)
+
+            console.log(e.target.innerText)
+        }
+
+        // dom2 事件委托
+        
+    </script>
+</body>
+</html>

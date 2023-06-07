@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        var num1 = 1
+        var num2 = num1
+        console.log(num2);//赋值的是地址 所以是1
+
+        num2 = 2
+        console.log(num2);//2
+    </script>
+
+
+    <script>
+        var obj1 = {
+            name:'孙悟空',
+            age:18,
+            sex:'男'
+        }
+        var obj2 = obj1
+        console.log(obj2)//孙悟空
+        obj2.name = '猪八戒'
+        console.log(obj2)//猪八戒 因为是同一个地址
+    </script> -->
+
+
+    <script>
+        var obj = {
+            name:'孙悟空',
+            age:20
+        }
+
+        function clone(obj){
+
+            // console.log(obj);//obj整个对象
+
+            var res = {}
+
+            // console.log(res)//很显然 空对象
+
+            for(var attr in obj){
+
+                // console.log(attr)//name  age 也就是属性名
+
+                // console.log(obj)//obj的整个对象
+                // 如果obj里有私有属性
+                if(obj.hasOwnProperty(attr)){
+                // 
+                    res[attr] = obj[attr]
+                    // console.log(res[attr])//孙悟空 20
+                    // console.log(obj[attr])//孙悟空 20
+                }
+            }
+            console.log(obj)
+            // 返回值直接放res中
+            return res
+        }
+
+        var cloneObj = clone(obj)
+        cloneObj.name = '猪八戒'
+        cloneObj.age = 18
+        console.log(cloneObj)
+
+        console.log(obj)
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         *  toString
+         */
+        //  number ==> string
+        var a = 123;
+        var b = a.toString();
+        console.log(a,typeof a);     //'123' 'number'
+        console.log(b,typeof b);//123 string
+
+        a = -9.8;
+        b = a.toString();
+        console.log(a,typeof a,b,typeof b);     //'-9.8' 'string'
+
+        a = NaN;
+        b = a.toString();
+        console.log(a,typeof a,b,typeof b);     // 'NaN' 'string'
+
+        // boolean ==> string
+
+        a = true;
+        b = a.toString();
+        console.log(a,typeof a,b,typeof b);     //  'true' 'string'
+
+        a = false;
+        b = a.toString();
+        console.log(a,typeof a,b,typeof b);     // 'false' 'string'
+
+
+         // null
+
+        /* a = null; // 无法转化，报错
+        b = a.toString()
+        console.log(a, typeof a, b, typeof b);  */
+
+        //Cannot read properties of null (reading 'toString')
+        // 不能   读   属性      从  null (正在读取 toString)
+        // 不能够从null身上读取 toString属性
+
+        // undefined
+        a = undefined;
+        b = a.toString();
+        console.log(a, typeof a, b, typeof b);
+
+         //Cannot read properties of undefined (reading 'toString')
+        // 不能  读    属性      从  undefined （正在读  toString）
+
+        // null 和 undefined 没有 toString 属性
+
+        /**
+         *  其他类型强制转化为 字符串
+         *  String    什么类型都可以转 包括 null  undefined 
+         *       null      ==> 'null'
+         *       undefined ==> 'undefined'
+         *      
+         *  toString
+         *      boolean  number string 可以正常转化
+         *      null 和 undefined 会报错
+         * 
+         */
+    </script>
+</body>
+</html>

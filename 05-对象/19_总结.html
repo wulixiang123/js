@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+         //用{}创建对象
+         var 对象名 = {
+         }
+         
+         
+         
+         //创建Object对象
+         var 对象名 = new Object()
+         对象名.name = '',
+         对象名.age = 18
+         对象名.setName = function(name){
+                  this.name = name
+         }
+         
+         
+         
+        // 工厂模式创建对象
+         function createPerson(name,age){
+              var obj = {
+                  name:name,
+                  age:age,
+                  setName:function(name){
+                  this.name = name
+                  }
+              }
+              return obj 
+         }
+         var p1 = creatPerson('孙悟空',18)
+         
+         
+         
+         //自定义构造函数模式
+         function Person(name,age){
+         this.name = name
+         this.age = age
+         this.setName = function(name){
+              this.name = name
+            }
+         }
+         var p1 = new Person('孙悟空',18)
+         
+         
+         
+         //构造函数+原型的组合模式
+         function Person(name,age){
+         this.name = name
+         this.age = age
+         }
+         Person.prototype.setName = function(name){
+         this.name = name
+         }
+         var p1 = new Person('孙悟空',18)
+    </script>
+
+
+
+
+
+
+    <script>
+        var arr = new Array();
+        arr[0] = '孙悟空';
+        arr[1] = '猪八戒';
+        document.write(arr[1]+'<br>');
+
+
+
+        // -------------------------------------
+        var arr1 = new Array(1,2,3,4,5);
+        document.write(arr1[3]+'<br>');
+
+
+        //---------------------------------------
+        var arr2 = [1,2,3,4,5,6];
+        document.write(arr2[0]+'<br>');
+
+
+        //----------------------------------------
+        var arr3 = [{name:'孙悟空'},{age:18},{old:20}];
+        document.write('name:'+arr3[0].name+'sex:'+arr3[1].sex+'<br>');
+
+
+        //---------------------------------------
+        var arr4 = [[1,2,3],[4,5,6],[7,8,9]];
+        document.write(arr4[0],arr4[1]);
+    </script>
+</body>
+</html>

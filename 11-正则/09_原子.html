@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str123 = "margin-top:50px;fontSize:80px";
+        var reg = /margin-top:(\d+)px;fontSize:(\d+)px/;
+
+        var result = str123.match(reg);
+        console.log('result:',result);
+    </script>
+</body>
+</html>

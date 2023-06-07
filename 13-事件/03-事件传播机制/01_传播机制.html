@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #outer{
+            width:500px;
+            height:500px;
+            background-color: aqua;
+            margin:100px auto;
+            overflow: hidden;
+        }
+        #middle{
+            width:400px;
+            height:400px;
+            background-color: bisque;
+            margin:50px auto;
+            overflow: hidden;
+        }
+        #inner{
+            width:300px;
+            height:300px;
+            background-color: blue;
+            margin:50px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <div id="middle">
+            <div id="inner">111</div>
+        </div>
+    </div>
+
+    <script>
+        var outer = document.querySelector('#outer')
+        var middle = document.querySelector('#middle')
+        var inner = document.querySelector('#inner')
+
+        /**
+         * dom0事件，都是在元素自身的属性上的事件.只有事件冒泡模式
+         *      (1) dom0事件只能绑定一次，重复绑定，后面的会覆盖前面的
+         *      (2) dom0事件只有事件冒泡机制
+         *      onclick
+         *      ....
+         * 
+         * dom2事件，EventTarget对象身上的属性
+         *     可以自定义是冒泡还是捕获。
+         * 
+         *        addEventListener(事件名,事件回调函数,boolean)
+         *        removeEventListener(事件名,事件回调函数,boolean)
+         * 
+         */
+
+        //  dom0事件的冒泡  从内向外
+        // outer.onclick = function(){
+        //     console.log('outer click')
+        // }
+        // middle.onclick = function(){
+        //     console.log('middle click')
+        // }
+        // inner.onclick = function(){
+        //     console.log('inner click')
+        // }
+
+
+        // dom2
+        // dom2事件,默认是false, 事件冒泡机制
+        //         true  [事件捕获]
+        //         false [事件冒泡]
+        // dom2事件，同一个事件可以绑定多次，都能触发
+
+        outer.addEventListener('click',function(){
+            console.log('outer click1');
+        })
+        middle.addEventListener('click',function(){
+            console.log('middle click1');
+        })
+        inner.addEventListener('click',function(){
+            console.log('inner click1');
+        })
+
+
+        // dom2中事件重复绑定
+        outer.addEventListener('click',function(){
+            console.log('outer click2');
+        })
+        middle.addEventListener('click',function(){
+            console.log('middle click2');
+        })
+        inner.addEventListener('click',function(){
+            console.log('inner click2');
+        })
+    </script>
+</body>
+</html>

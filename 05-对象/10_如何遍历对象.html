@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         *  for in
+         *  知识点：
+         * 1. for in 循环遍历对象
+         * 2. []语法读取属性值
+         * 
+         */
+        var obj = {
+            name:'atguigu',
+            age:19,
+            address:'宏福科技园',
+            a:'孙悟空'
+        }
+         // attr : attribute [属性]!!!!!!!!!!!!!!!!!!!!
+        for(var attr in obj){
+            // console.log('attr:',attr);// attr 是遍历时当前次循环的属性名
+            // console.log('obj:',obj);// obj 是整个对象
+            // console.log('obj.attr:',obj.attr);// obj中的attr属性，是undefined
+            // console.log('obj[attr]:',obj[attr]);//obj[attr]:孙悟空
+            // console.log('obj[' + attr + ']: ',obj[attr]);//obj[a]:孙悟空
+            console.log(attr)//返回所有遍历过的变量名
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function sum() {
+            return 2 + 3;
+        }
+        console.log(sum());
+
+        function total(a, b) {
+            // return a + b;
+            var t = a + b;
+            return t;
+        }
+        console.log(total(1, 2));
+
+        // 返回 n 到 m 之间所有数的和 ==> 返回1到100 之间所有整数的和
+
+        // var sum = 0;
+        // var n = 1;
+        // var m = 100;
+        // for(var i = n; i <= m; i++){
+        //     sum += i;
+        // }
+
+
+        /**
+         * 
+         */
+        function totalNM(n, m) {
+            var sum = 0;
+            if(n > m){
+                var temp = n;
+                n = m;
+                m = temp;
+            }
+            for (var i = n; i <= m; i++) {
+                sum += i;
+            }
+            console.log(sum);
+            return sum;
+        }
+
+        console.log(totalNM(1,100));
+        console.log(totalNM(100,2));
+
+
+        /***
+         * 输入两个数，返回最大值
+         * 
+         */
+
+        function getMax(a, b){
+            return a > b ? a : b;
+        }
+
+        var result = getMax(11,2);
+        console.log(result);
+
+        /***
+         *  三个数找最大值
+         * 
+         */
+        function getThreeMax(a,b,c){
+            var max = a;
+            // return a > b ? (a > c ? a : c) : (b > c ? b : c);
+
+            if(a > b){
+                if (a > c){
+                    max = a;
+                }else{ // a < c
+                    max = c;
+                }
+            }else { // a < b
+                if(b > c){
+                    max = b;
+                }else{
+                    max = c;
+                }
+            }
+            return max;
+        }
+        console.log(getThreeMax(100,220,300));
+
+        function liuBo(a,b,c){
+            var max = a;
+            if(max < b){
+                max = b;
+            }
+            // max 中装的是a和b中最大的值
+            if(max < c){
+                max = c;
+            }
+            return max;
+        }
+
+        function getThreeMaxArr(a,b,c){
+            var arr = [a,b,c];
+            // 方式一：
+            // var max = arr[0];
+            // for(var i = 1; i < arr.length;i++){
+            //     if(max < arr[i]){
+            //         max = arr[i]
+            //     }
+            // }
+            // return max;
+            // 方式二：
+            arr.sort(function(a,b){
+                return a - b;
+            })
+
+            return arr.pop();
+        }
+        console.log(getThreeMaxArr(22,330,55));
+
+
+        /**
+         *  接收一个数组，求数组的和并返回
+         * 
+         */
+
+        function getArrTotal(arr){
+            var sum = 0;
+            for(var i = 0; i < arr.length; i++){
+                sum += arr[i];
+            }
+            return sum;
+        }
+        var result = getArrTotal([2,6,4,4,3]);
+        console.log(result);
+
+
+        function filterArr(arr){
+            var newArr = [];
+            for(var i = 0; i < arr.length; i++){
+                if(!newArr.includes(arr[i])){
+                    newArr.push(arr[i])
+                }else{
+                    continue;
+                }
+            }
+            return newArr;
+        }
+
+        console.log(filterArr([1,2,3,2,3,1,5,3,2,4]));
+        
+
+    </script>
+</body>
+
+</html>

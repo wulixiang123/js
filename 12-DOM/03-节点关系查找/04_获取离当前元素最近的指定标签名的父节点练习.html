@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <section>
+            <ul>
+                <li>111</li>
+                <li>222</li>
+                <li>333</li>
+            </ul>
+        </section>
+    </div>
+
+    <script>
+        var myLi = document.querySelector('li:nth-child(1)')
+
+         /**
+         *  nodeName : 属性：元素的标签名，标签名的值是大写的
+         * 
+         */
+        function getParentElement(ele,tagName){
+            // 1. 首先获取当前元素的父节点 
+            //    1-1. 父节点没有 只是null
+            //    1-2. 父节点有，但是nodeName，不是你要找的
+            var result = ele.parentNode;
+            while(result != null && result.nodeName !== tagName){
+                console.log(result.nodeName);
+                result = result.parentNode;
+            }
+            return result;
+        }
+        var res = getParentElement(myLi,'DIV')
+        console.log(res);
+    </script>
+</body>
+</html>

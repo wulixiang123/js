@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 错误：引用地址相同，导致originPrototype.push 和Array.prototype.push是一个push，形成递归调用，内存溢出
+        // var originPrototype = Array.prototype;
+
+        // originPrototype.push = function(){
+        //     Array.prototype.push.apply(this,arguments);
+        // }
+
+        // 创建一个新的push方法
+        var originPush = Array.prototype.push;// 缓存原数组的方法/保留原数组的push方法
+
+        // 直接修改原型上的方法，会导致数组的方法被全局污染了。
+        Array.prototype.push = function(){
+            console.log(this);// arr.push,所以this是arr
+            // 1. 调用原数组方法
+            originPush.apply(this,arguments);
+
+            // 2. 输出视图更新
+            console.log('视图更新');
+        }
+
+        var arr = [1,2,3,4];
+        arr.push(5,6);
+        console.log(arr);
+
+
+        // 
+        arr.push(123,33,5,7,4)
+
+
+    </script>
+</body>
+</html>

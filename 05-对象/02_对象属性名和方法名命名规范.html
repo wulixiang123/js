@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 属性名和方法名要求符合：标识符命名规范【推荐】
+         * 
+         */
+        var obj = {
+            var:'我就用var了怎么的', // 不推荐，因为var是关键字，但是可以用，不报错
+            getUserInfo:function(){
+                console.log('获取用户信息')
+            }
+        }
+        console.log(obj, obj.var); // 读取属性值
+        obj.getUserInfo();
+
+        obj.var = '重新赋值var属性'; // 给属性重新赋值
+        console.log(obj);
+        console.log(obj.var)
+    </script>
+</body>
+</html>

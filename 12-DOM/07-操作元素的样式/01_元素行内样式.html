@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div style="height:150px;border: 1px solid red;">111</div>
+    <script>
+        var myDiv = document.querySelector('div')
+        console.log(myDiv.style.height)//150px  读取行内样式 height
+        console.log(myDiv.style.width)//''  没有值，因为width不是通过行内设置的
+        console.log(myDiv.style.border)//1px solid red
+
+        // 行内样式更多的使用来设置，而不是读取
+        myDiv.style.width = '600px';// 给div元素增加了行内样式 width
+
+        // 符合属性赋值==> 需要驼峰命名法
+        myDiv.style.backgroundColor = 'red'
+        myDiv.style.fontSize = '50px'
+        myDiv.style.marginTop = '100px'
+    </script>
+</body>
+</html>

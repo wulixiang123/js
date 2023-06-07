@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 
+        普通函数的this，只跟调用者有关，调用的时候，.前面是谁
+     -->
+    <script>
+        // function fn(){
+        //     console.log(this,arguments)//window
+        // }
+        // fn()
+
+
+             /**
+         * 箭头函数没有arguments，也没有this, 箭头函数中的this，只跟函数在哪里定义有关，使用的是上级作用域中的函数的this。
+         * 
+         * 没有自己的this，使用的是上级作用域中的this，箭头函数中的this在定义的时候决定。跟在哪儿调用，谁调用的没有关系。
+         * 没有自己的arguments，可以沿着作用域链，使用上级函数作用域中的arguments
+         * 
+         */
+
+
+        // var arrow = ()=>{
+        //     console.log(this)//window
+        //     console.log(arguments)//报错
+        // }
+        // arrow()
+
+
+        
+
+            function testArrow(){
+                var arr = ()=>{
+                    console.log(this)//window
+                    // 没有自己的arguments，使用的是 testArrow中的arguments，因为是沿着作用域链查找找到的。
+                    console.log(arguments)//123
+                }
+                arr()
+            }
+            testArrow(1,2,3)// arr 中的this指向window，因为 testArrow中的 this指向window
+
+            var obj = {
+                name:'尚硅谷'
+            }
+            // arr 中的this指向 obj，因为跟testArrow中的this保持一致，testArrow通过call改变了this，指向了 obj，所以 arr中的this指向obj
+            testArrow.call(obj,11,22,33)//改变指向之后 箭头函数this的值为name:尚硅谷 arguments的值为11,22,33
+    </script>
+</body>
+</html>

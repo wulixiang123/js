@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../12-DOM/07-操作元素的样式/js/utils.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #outer {
+            width: 500px;
+            height: 500px;
+            background-color: aqua;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        #middle {
+            width: 400px;
+            height: 400px;
+            background-color: bisque;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+
+        #inner {
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <button id="btn">解绑</button>
+        <div id="middle">
+            <div id="inner">111</div>
+        </div>
+    </div>
+
+    <script>
+        var outer = $('outer')
+        var middle = $('middle')
+        var inner = $('inner')
+
+        var myBotton = $('btn')
+
+        // dom0事件的解绑： 赋值为null
+        // outer.onclick = function(){
+        //     console.log('outer')
+        // }
+
+        // myBotton.onclick = function(){
+        //     outer.onclick = null
+        // }
+
+
+        // dom2事件的解绑
+        // 1. 必须是具名函数，保证是同一个内存地址，是同一个函数
+        // 2. 是同一个事件阶段
+        // 总结：dom2事件解绑，必须是同一个事件，同一个函数，同一个阶段
+
+        function f1(){
+            console.log('outer 冒泡事件');
+        }
+        function f2(){
+            console.log('outer 捕获事件');
+        }
+        outer.addEventListener('click',f1,false);
+        outer.addEventListener('click',f2,true);
+
+        myBotton.onclick = function(){
+             // 解绑事件
+            outer.removeEventListener('click',f2,true);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var a = [1, 2];
+        // var b = a;
+        // a[0] = 20;   // 如果a = [20,2]；
+        // console.log(b);//[20,2]
+
+        // var a = [];//new Array()
+        // var b = [];//new Array()
+        // console.log(a == b);// false
+
+
+        function Person(name, age, salary) {
+            this.name = name;
+            this.age = age;
+            this.salary = salary;
+        }
+
+        function f1(pp) {
+            pp.name = "ls";
+            pp = new Person("aa", 18, 10);
+        }
+
+        var p = new Person("zs", 18, 1000);
+        console.log(p.name);// zs
+        f1(p);
+        console.log(p.name);// ls
+
+        function fn() {
+            var a = 0;
+            var b = 1;
+            function fn1() {
+                a++;
+                console.log(a);
+            }
+            return fn1;
+        }
+        var f = fn();
+        f();
+        f();
+
+        // 
+        var name = "The Window";
+        var object = {
+            name: "My Object",
+            getNameFunc: function () {
+
+                return function aabb() {
+                    return this.name;
+                };
+            }
+        };
+        console.log(object.getNameFunc()());
+
+
+
+        var name2 = "The Window";
+        var object2 = {
+            name2: "My Object",
+            getNameFunc: function () {
+                //如果说你想在内部其它函数当中使用外部函数的this，就把外部函数this保存起来
+                var that = this;
+                return function () {
+                    return that.name2;
+                };
+            }
+        };
+        console.log(object2.getNameFunc()());
+
+
+
+        var str = '1a1322143234212131451111112332';
+        var obj = {};
+        for (var i = 0; i < str.length; i++) {
+            // str[i] 当前遍历到的字符串中的当前元素
+            // i = 0   str[i]  1   obj[str[i]] = obj['1']   false  obj['1'] = 1  obj = {"1":1}
+            // i = 1   str[i]  a   obj[str[i]] = obj['a']   false  obj['a'] = 1  obj = {"1":1,"a":1}
+            // i = 2   str[i]  1   obj[str[i]] = obj['1']   true   obj['1'] += 1 obj = {"1":2,"a":1}
+
+            obj[str[i]] ? obj[str[i]] += 1 : obj[str[i]] = 1;
+        }
+        console.log(obj);
+
+
+        // var obj2 = {
+        //     "1":"sdkjfl",
+        //     "2":"dfajdk"
+        // }
+        // console.log('obj2: ',obj2);
+
+    </script>
+</body>
+
+</html>

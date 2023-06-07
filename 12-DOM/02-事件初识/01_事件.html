@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点我一下试试!</button>
+    <script>
+        var myBotton = document.querySelector('button');
+        myBotton.onclick = function(){
+            alert('试试就试试')
+            console.log('this:',this)
+        }
+    </script>
+</body>
+</html>

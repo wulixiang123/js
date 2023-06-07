@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         *  Date: 日期对象
+         * 
+         *  **  Date.now() 获取时间戳
+         * 
+         */
+        var date = new Date();
+        console.log('data:',date);//当前时间的日期
+        console.log(Date.prototype);
+
+        //获取年
+        var year = date.getFullYear();//获取年
+        console.log(year);
+
+        //获取月
+        var month = date.getMonth();
+        console.log(month+1);
+
+        // 获取日
+        var day = date.getDate();
+        console.log('日: ', day);
+
+        // 获取小时
+        var hour = date.getHours();
+        console.log('hour: ', hour);
+
+        // 分钟
+        var minute = date.getMinutes();
+        console.log('minute: ', minute);
+        // 秒
+        var seconds = date.getSeconds();
+        console.log('秒: ', seconds);
+
+        // 当前时间本地格式化字符串
+        console.log('当前时间： ',date.toLocaleTimeString()); // 16:32:40
+        //当前日期的本地格式化字符串
+        console.log('前日期: ',date.toLocaleDateString());//当前日期的本地格式化字符串
+
+        // 获取当前时间的时间戳  从1970年1月1号 到当前时间毫秒数
+        console.log(date.getTime(), Date.now());
+
+        // 获取星期
+        // var day = date.getDay();
+        // console.log('day: ', day);
+    </script>
+</body>
+</html>

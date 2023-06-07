@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * concat[合并]:
+         * 作用：合并多个数组为一个新数组
+         * 返回值：合并后的新数组
+         * 
+         * 改变原数组么？原数组不改变
+         * 
+         * 特殊应用：克隆[复制]一个新数组
+         * 
+         */
+
+        var arr1 = [1,2,3];
+        var arr2 = [4,5,6];
+        var arr3 = [7,8,9];
+
+        var res = arr1.concat(arr2);
+        console.log(res,arr1,arr2);
+
+        var res2 = arr1.concat(arr2,arr3);
+        console.log(res2, arr1, arr2, arr3);
+
+        // 复制一个数组
+        var arr = ['a','b','c'];
+
+        var newArr = arr.concat([]);// 复制一个元素一模一样的数组，但不是一个数组
+        console.log(arr,newArr);
+
+        arr[0] = 'aaaa';
+        console.log(arr,newArr);
+        console.log(arr === newArr);
+
+        /***
+         *  slice: 切片
+         *  
+         *  语法： slice(startIndex, endIndex);  [startIndex, endIndex)
+         *         startIndex、endIndex 取值也可以是 负数
+         *  作用：根据开始和结束索引窃取数组中的一段
+         *  返回值：截取后的数组
+         *  
+         * 
+         *  特殊用法：复制一个元素一样的数组
+         * 
+         */
+        //         0 1 2 3 4
+        var arr = [1,2,3,4,5];
+        var res = arr.slice(0);
+        console.log(res,arr, res === arr);
+
+        var res = arr.slice(1,4)
+        console.log(res, arr);
+
+        var res = arr.slice(-3,-1);
+        console.log(res, arr);
+
+        var res = arr.slice(0, -1);
+        console.log(res, arr)
+
+
+        /**
+         *  includes: 
+         *  0. 语法：arr.includes(元素)
+         *  1. 作用：检查一个元素是否在数组中
+         *  2. 返回值：boolean
+         */
+
+        var arr = ['a','1','b',5,3];
+        console.log(arr.includes(6),arr.includes('a'));
+
+        // 使用includes进行去重
+
+        var arr = [1,5,3,2,1,5,3,7,2];
+        var newArr = [];
+        for(var i = 0; i < arr.length; i++){
+            if(!newArr.includes(arr[i])){
+                newArr.push(arr[i]);
+            }else{
+                continue;
+            }
+        }
+        console.log(newArr);
+
+        /**
+         * join[链接]：
+         * 作用：使用字符串-链接数组中的每一个元素
+         * 参数：链接元素的符号
+         * 返回值：链接后的字符串
+         * 
+         * 
+         * 数组的join方法，经常和字符串的 split方法配合使用
+         * split[拆分]：
+         * 
+         * str.split('-')
+         * 
+         * 作用：将字符串按符号拆分成数组
+         * 返回值：拆分后的数组
+         * 
+         */
+        var arr = ['迪丽热巴','古力娜扎','热依扎','佟丽娅'];
+        var res = arr.join('-');
+        console.log(res);
+
+
+        var str = '1,2,3,4,5';
+
+        var res = str.split(','); //['1', '2', '3', '4', '5']
+        console.log(res);
+
+        /***
+         *  面试题：
+         *  将字符串 1-2-3-4-5，变为 5-4-3-2-1
+         * 
+         * 
+         */
+        var str = '1-2-3-4-5';
+        var res = str.split('-');// ['1','2','3','4','5']
+        res.reverse();// res ['5','4','3','2','1']
+        var str2 = res.join('-');
+
+        console.log(str2);
+
+        // 优化版
+        var str = '1-2-3-4-5';
+        var str2 = str.split('-').reverse().join('-');
+        console.log(str2);
+
+
+        /***
+         *  split 特殊用法
+         * 
+         *  str = '12345'
+         *  
+         *  将每一个字符串的字符都当做数组中的一个元素，按空字符串('')拆分即可
+         */
+
+        var arr = '12345'.split('');
+        console.log(arr);
+
+        var str = '12345';
+        var str2 = str.split('').reverse().join('')
+        console.log(str2);
+
+
+        /***
+         * indexOf:
+         * 0. 语法： var index = arr.indexOf(元素)
+         * 1. 作用：判断一个元素是否在数组中，如果在，返回元素的首次出现的索引位置
+         *          如果不在，返回-1
+         * 2. 返回值：number 索引值 要么是 -1
+         */
+
+        var arr = ['a','b','a',1,3,2];
+
+        console.log(arr.indexOf('a')); //0 ==> boolean ==> fasle 索引不能直接用indexOf的返回值作为元素是否在数组的判断依据
+        console.log(arr.includes('a')); // 返回布尔值 true
+
+        console.log(arr.indexOf('z'));// 元素不在数组中返回 -1 ，可以使用返回值是不是-1 作为元素是否在数组的判断依据
+        
+        if(arr.indexOf('a') !== -1){
+            console.log('a在arr数组中')
+        }
+
+        var arr = [1,2,4,23,1,32,2,4];
+        var newArr = []
+        for(var i = 0; i < arr.length; i++){
+            if(newArr.indexOf(arr[i]) !== -1){
+                continue;
+            }else{
+                newArr.push(arr[i]);
+            }
+        }
+        console.log(newArr);
+
+
+
+    </script>
+</body>
+</html>

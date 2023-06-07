@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            width: 100px;
+            height: 100px;
+          
+            background-color: red;
+        }
+    </style>
+    <script src="../12-DOM/07-操作元素的样式/js/utils.js"></script>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script>
+        // 获取dom节点
+        var myBox = document.querySelector('#box')
+        var target = {
+            width:500,
+            height:500,
+            left:1000,
+            Opacity:0.3
+        }
+        var begin = {}
+        var change = {}
+        var curPos = {}
+        // 迭代对象 
+        for(var attr in target){
+            console.log(attr);//attr 属性名  
+            console.log(target)//target 所有属性名和属性值
+            // dom width
+            begin[attr] = utils.css(myBox,attr)
+            change[attr] = target[attr] - begin[attr]
+        }
+        // console.log(target,begin,change)
+       
+        var duration = 2000
+        var t = 0
+        var timeStep = 10
+        
+        function linear(t,b,s,d){
+            return s / d * t + b;
+        }
+
+        myBox.timer = setInterval(() => {
+           t = t+timeStep
+           if(t>=duration){
+           clearInterval(myBox.timer)
+           utils.css(myBox,{width:target.width,height:target.height})
+           return 
+           }
+           for(var attr in target){
+         
+            curPos[attr] = linear(t,begin[attr],change[attr],duration)
+           }
+           utils.css(myBox,curPos)
+        }, timeStep);
+    </script>
+</body>
+</html>

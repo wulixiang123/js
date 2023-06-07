@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "box">我是div</div>
+    <span>我是span</span>
+    <p class="c1">我是p标签1</p>
+    <p class="c1">我是p标签2</p>
+
+    <input type="checkbox" name="username" id="">
+    <input type="checkbox" name="username" id="">
+
+    <div class="myClass">
+        <div>
+            <p>今天天气真不错!</p>
+        </div>
+    </div>
+    <script>
+        var box1 = document.getElementById('box');
+        var box2 = document.querySelector('#box');
+        console.log(box1,box2);
+
+        var span1 = document.getElementsByTagName('span');
+        var span2 = document.querySelector('.c1')
+        console.log(span1,span2);
+
+        var class1 = document.getElementsByClassName('c1');
+        var class2 = document.querySelector('.c1');
+        var class3 = document.querySelectorAll('.c1')
+        console.log(class1,class2,class3);
+
+        var op = document.querySelector('.myClass div p');
+        console.log(op);
+    </script>
+</body>
+</html>

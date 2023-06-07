@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // for in 可以遍历数组和对象 也可以遍历私有公有属性[包括继承过来的]
+        // 如果只遍历私有属性 那么需要使用hasOwnProperty
+        // var arr  = [1,2,3,4]
+        // for(var index in arr){
+        //     console.log(index)//索引值0,1,2,3
+        //     console.log(arr[index])//数组值1,2,3,4
+        // }
+
+
+        var obj = {name:'尚硅谷',age:10}
+        obj.__proto__.zidingyi = '宏福科技园'
+
+        for(var shuxingming in obj){
+            if(obj.hasOwnProperty(shuxingming)){
+                console.log(shuxingming)//属性名name,age
+                console.log(obj[shuxingming])//属性值尚硅谷,10
+            }
+        }
+        console.log('obj:',obj)//自定义属性
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div style="height:150px;border:1px solid red;width:600px;">111</div>
+
+    <script>
+        /**
+         *  IE678: [了解]
+         *     元素.currentStyle.属性
+         * 
+         *  主流浏览器：【需要掌握】
+         *  computed: 计算后的
+         * 
+         *    getComputedStyle(元素,伪类).属性
+         * 
+         *     before
+         *     after
+         *     常用的：getComputedStyle(元素, null).属性
+         * 
+         *   
+         * 
+         */
+        var myDiv = document.querySelector('div')
+        console.dir(getComputedStyle(myDiv,null));
+        console.log('fontFamily:',getComputedStyle(myDiv,null).fontFamily);
+        console.log('fontSize:',getComputedStyle(myDiv,null).fontSize);
+
+        // IE678 中读取 getComputedStyle 值是undefined 
+
+        console.log(window.getComputedStyle); // 
+
+        // 判断IE678的方式 方式一：
+        if(window.getComputedStyle){ // 不是IE678
+            getComputedStyle(myDiv,null).fontFamily
+        }else{ // 说明是IE678
+            oDiv.currentStyle.fontFamily;
+        }
+
+        // 方式二：
+        if("getComputedStyle" in window){// 不是IE678
+
+        }else{
+            // 是IE678
+        }
+
+    </script>
+</body>
+</html>

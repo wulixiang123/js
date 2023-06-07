@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            margin-top: 50px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script>
+        var myBox = document.querySelector('#box')
+
+        function setCss(ele, attr, value) {
+            // 以下属性是带px单位的属性
+            var reg = /(width|height|left|top|right|bottom|fontSize|lineHeight)|((margin|padding)|(Top|Bottom|Left|Right))/;
+            if (reg.test(attr)) {
+                // 如果正则成立，说明这些属性是需要px单位的属性
+                if (!isNaN(value)) {// 条件成立，说明value是一个纯数字，那么需要加上px单位
+                    value += 'px'
+                }
+            }
+            ele.style[attr] = value;
+        }
+        function testType(value, type) {
+            var result = Object.prototype.toString.call(value).slice(8, -1);
+            // [object Number]  slice(8,-1) ==> Number
+            // [object String]  slice(8,-1) ==> String
+            // [object Object]  slice(8,-1) ==> Object
+            // [object Null]    slice(8,-1) ==> Null
+            return result === type;
+        }
+
+        function setGroupCss(ele, options){
+            // 判断options是一个对象
+            if(testType(options, 'Object')){// options是一个对象，并且不是null，可以for in
+                for(var attr in options){
+                    
+                    // 判断是不是私有属性
+                    if(options.hasOwnProperty(attr)){
+                        // 都是私有属性，可以进行设置
+                        setCss(ele, attr, options[attr]);
+                    }
+                }
+            }
+        }
+
+        function getCss(ele, attr){
+            var value;
+            if(!"getComputedStyle" in window){// 判断是不是IE678 ,如果是使用currentStyle获取
+                value = ele.currentStyle[attr]
+            }else{// 如果不是使用getComputedStyle获取
+                value = getComputedStyle(ele,null)[attr];
+            }
+            //      判断是一个数字          是数字返回数字         不是返回原来的值
+            return !isNaN(parseFloat(value)) ? parseFloat(value) : value;
+        }
+
+        function css(ele,attr,value){
+            if(typeof attr === 'string'){
+                if(typeof value !== 'undefined'){
+                    setCss(ele,attr,value)
+                    return
+                }
+                return getCss(ele,attr)
+            }
+            if(testType(attr,'Object')){
+                setGroupCss(ele,attr)
+            }
+        }
+        css(myBox, {width:200, height:200,border:'10px solid black'});
+    </script>
+</body>
+</html>

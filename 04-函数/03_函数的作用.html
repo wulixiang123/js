@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /***
+         *  函数可以将重复的代码逻辑封装成一个函数，进行逻辑的复用
+         * 
+         */
+
+        // console.log('欢迎光临温度水城！');
+        // console.log('贵宾，周先生');
+        // console.log('您本次消费：20元');
+
+        // console.log('欢迎光临温度水城！');
+        // console.log('贵宾，杨先生');
+        // console.log('您本次消费：20万元');
+
+        // console.log('欢迎光临温度水城！');
+        // console.log('贵宾，李先生');
+        // console.log('您本次消费：2000元');
+
+        function wendu(name, price) {
+            console.log('欢迎光临温都水城！');
+            console.log('贵宾，'+name+'先生');
+            console.log('您本次消费：'+price+'元');
+
+        }
+
+        wendu('周', 20);
+        wendu('杨', 20000);
+        wendu('李', 2089);
+    </script>
+</body>
+
+</html>

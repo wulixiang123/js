@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="./images/gulinazha.png" alt="古力娜扎" width="300px" height="500px">
+    <button>点我选妃</button>
+    <script>
+        var myBotton = document.querySelector('button');
+        var myImg = document.querySelector('img')
+        var flag = true;
+        myBotton.onclick = function(){
+            myImg.src ="./images/liuyifei.png"
+
+            if(flag){
+                myImg.src = './images/liuyifei.png'
+            }
+            else{
+                myImg.src = './images/gulinazha.png'
+            }
+            myImg.src = flag?'./images/liuyifei.png':'./images/gulinazha.png';
+            flag = !flag;
+        }
+    </script>
+</body>
+</html>

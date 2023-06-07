@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <span>我是span</span>
+    </div>
+
+    <script>
+         /**
+         * 语法：父节点.replaceChild(新节点, 旧节点)
+         */
+        var myDiv = document.querySelector('div')
+        var mySpan = document.querySelector('span')
+
+        // 创建新节点
+        var myH1 = document.createElement('h1');
+        myH1.innerHTML = '我是h1'
+        myDiv.replaceChild(myH1,mySpan)
+    </script>
+</body>
+</html>

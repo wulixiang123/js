@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+        var userList = [
+            {
+                id:1,
+                username:'张三',
+                age:15
+            },
+            {
+                id:2,
+                username:'李四',
+                age:17
+            },
+            {
+                id:3,
+                username:'王五',
+                age:21
+            },
+            {
+                id:4,
+                username:'赵六',
+                age:20
+            }
+        ];
+
+        console.log(userList);
+        /**
+         *  需求一：将年龄超过18岁的同学找到。
+         *          filter、forEach
+         * 
+         *  需求二：计算全班同学的平均年龄.  总年龄 / 人数  reduce
+         * 
+         *  需求三：将所有同学的按照年龄从大到小排列
+         * 
+         *  编程式试错的艺术
+         * 
+         */
+
+        // 需求一：将年龄超过18岁的同学找到。
+        // 方式一：
+        // var userArr = [];
+        // userList.forEach(function(user,index){
+        //     // console.log('user: ', user);// 将user.age > 18 的找到
+        //     // console.log('index: ', index);
+        //     if(user.age > 18){
+        //         userArr.push(user);
+        //     }
+        // })
+        // console.log(userArr);
+
+        // 方式二：filter
+        /**
+         *  作用：筛选过滤数组
+         *  返回值：筛选后的新数组
+         */
+        var useArr = userList.filter(function(user, index){
+            console.log('user: ', user);
+            console.log('index: ', index);
+            return user.age > 18;
+        })
+        console.log(useArr);
+
+
+        //需求二：计算全班同学的平均年龄.  总年龄 / 人数  reduce
+        
+        // 1. 算出全班同学年龄的总和
+        var totalAge = userList.reduce(function(pre, cur){
+            console.log(pre, cur);
+            return pre + cur.age;
+        },0)
+
+        // 2. 算出平均年龄
+        console.log(totalAge / userList.length);
+
+
+        var sum = 0;
+        userList.forEach(function(user){
+            sum += user.age;
+        })
+        console.log(sum/userList.length);
+
+        // var b = 0;
+        // var c = 0;
+        // var a = userList.forEach(function(user,index){
+        //     console.log(user);
+        //     console.log(index);
+        //     //计算全班同学的平均年龄.  总年龄 / 人数 
+        //     b = b+user.age;
+        //     c = b/userList.length
+        // })
+        // console.log(b,c);
+
+        //需求三：将所有同学的按照年龄从大到小排列
+
+        /**
+         *  sort : 
+         *  参数是什么？ 回调函数，a b
+         *  返回值是什么？ 排序后的新数组
+         *  改变原数组
+         * 
+         */
+
+        userList.sort(function(a,b){
+            // console.log('a: ', a);
+            // console.log('b: ', b);
+            return b.age - a.age;
+        })
+        console.log(userList);
+
+        
+   </script> 
+</body>
+</html>

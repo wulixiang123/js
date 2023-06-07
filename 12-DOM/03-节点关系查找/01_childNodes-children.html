@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <div></div>
+
+    <!-- 
+        childNodes获取节点的子节点[所有的子节点，不仅仅是元素节点]
+        children: 获取当前元素的元素子节点
+        firstChild 取当前元素的第一个子节点【元素、文本、注释】
+        lastChild   取当前元素的最后一个子节点
+        Element: 元素
+
+
+
+        // firstChild 取当前元素的第一个子节点【元素、文本、注释】
+        // first : 第一个
+        // last: 最后一个
+        // child:孩子
+        // children : 孩子们
+        // Element: 元素
+        // die: 死
+     -->
+
+    <script>
+        // childNodes获取节点的子节点[所有的子节点，不仅仅是元素节点]
+        var myUl = document.querySelector('ul');
+        var child1 = myUl.childNodes;
+        console.log('childNodes:', child1)
+
+
+        /**
+         * 作用：找到当前元素的所有元素子节点
+         * return []
+         */
+        function childElements(ele){
+            var eleArr = [];
+            var children = ele.childNodes;
+            for(var i = 0;i<children.length;i++){
+                if(children[i].nodeType === 1){
+                    eleArr.push(children[i]);
+                }
+            }
+            return eleArr;
+        }
+
+        var myLi = childElements(myUl);
+        console.log(myLi);
+
+        //children: 获取当前元素的元素子节点
+        var myUl = document.querySelector('ul');
+        console.log('children:',myUl.children);
+    </script>
+</body>
+</html>

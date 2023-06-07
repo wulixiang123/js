@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var arr = new Array(-10); //RangeError: Invalid array length
+        // console.log(arr);
+
+        var arr = [1,2,3];
+        console.log(arr[-2]); // 没有报错，输出了 undefined，有效的下标是从 0 开始的正整数
+        
+        // 以下都能用，不报错，还正常显示了，但是不会这样使用
+        arr[-2] = 10;
+        console.log(arr, arr[-2]);
+
+        arr[0.3] = 99;
+        console.log(arr, arr[0.3]);
+    </script>
+</body>
+</html>

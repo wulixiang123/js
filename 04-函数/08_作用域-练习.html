@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a =100;
+        function fn(){
+            var b = 200;
+            c = 300;
+            console.log(a);//100
+        }
+        fn();
+        function fn123(a,b){
+            console.log(a,b);//12
+        }
+        fn123(1,2);
+        console.log(a,b);//b is not undefined  a没有打印是因为b的影响
+    </script>
+</body>
+</html>

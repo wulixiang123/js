@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         *                 构造函数             普通函数
+         * 1. 调用方式：    new                 函数名()
+         * 2. 返回值        this当前实例        return 什么，就返回什么
+         * 3. this指向      指向当前实例        .前面的
+         * 
+         * 原型和原型链：
+         * 1. 每一个函数都一个属性 prototype，是原型对象、
+         * 2. 每一个原型对象都有一个属性 constructor，就是当前函数本身
+         * 3. 每一个对象都有一个属性 __proto__, 指向所属类的原型对象
+         */
+
+         function Person(name,age){
+            this.name = name
+            this.age = age
+         }
+         Person.prototype.say = function(){
+            console.log(this.name,this.age)
+         }
+
+         var p1 = new Person('老张',19)
+         var p2 = new Person('老李',20)
+         p1.say()
+         p2.say()
+         console.log(p1.say===p2.say)
+    </script>
+</body>
+</html>

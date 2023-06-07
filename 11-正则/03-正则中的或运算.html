@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         *  需求：字符串中是否有 abc 或 aec 或 afc
+         * 
+         */
+        var reg = /(abc)|(aec)|(afc)/;// abc aec 或 afc
+        reg = /a(b|e|f)c/; //  abc aec 或 afc
+        reg = /a[bef]c/; // abc 或 aec 或 afc  []中的字符都是或的关系
+
+        var str = 'afc123';
+        console.log(reg.test(str));
+
+        /**
+         *  需求：只要是有字母就可以
+         *  var reg = /[abcdefghijklmnopqrstuvwxyz]/
+         */
+        
+        var reg = /[a-z]/; // 只要有小写字母就可以
+
+        var str = '1123b234';
+        console.log(reg.test(str));
+
+        var reg = /[A-Z]/; // 只要有大写字母就可以
+        console.log(reg.test(str));
+
+        // 只要是字母就可以，不管是大写还是小写
+        var reg = /[a-zA-Z]/;
+        var reg = /[A-z]/; // 大小写字母都可以   A 65  a 97
+        console.log(reg.test(str));
+
+        // 只要是数字就可以
+        var reg = /[0-9]/;
+
+        // 只要是数字和字母就可以
+        var reg = /[0-9A-z]/;
+
+        // 只要是数字或字母或@符都可以
+        var reg = /[0-9A-z@]/;
+
+
+        var reg = /[^abc]/;
+        var str = 'aabcd';
+        console.log(reg.test(str));
+
+        var reg = /[^0-9]/; // 除了数字就可以 ==> 全是数字才是false，但凡有一个不是数字就是true
+        console.log(reg.test('1235433'));// false
+        console.log(reg.test('1235433@'));// true
+
+        var reg = /[^0-9A-z]/; // 除了字母和数字都可以
+    </script>
+</body>
+</html>

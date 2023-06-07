@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 属性名 in 对象，返回boolean 
+         * 
+         */
+        var str = 'sex';
+        var obj = new Object();
+        console.log('obj',obj);//{}
+        obj.name = 'atguigu';
+        obj.age = '19';
+        obj[str] = '女'
+        console.log('obj:',obj);
+        var res1 = 'name'in obj;// 检查name是否是obj的一个属性
+        console.log('res1:',res1);//true
+
+        var res2 = 'sex'in obj;
+        console.log('res2:',res2);//true
+        console.log(str in obj);//true
+    </script>
+</body>
+</html>

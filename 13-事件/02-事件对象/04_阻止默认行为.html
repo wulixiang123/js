@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="http://baidu.com">百度</a>
+    <script>
+        /**
+         *  有些元素标签会有默认的事件行为，比如：
+         * 1. a标签点击后，会默认要跳转到 href属性指定的地址
+         * 2. form表单标签，点击提交按钮，会默认提交到其 action 属性指定的地址
+         * 3. input表单，键盘按下的默认行为是输入内容
+         * 
+         * 有些业务需求要求我们阻止元素标签的默认行为
+         * 
+         */
+
+
+        var myA = document.querySelector('a')
+        myA.onclick = function(e){
+            e = e || window.event
+            // 阻止默认行为的方法，有兼容新问题
+             // 1. 标准浏览器：e.preventDefault();
+            // 2. IE678:      e.returnValue = false;
+            e.preventDefault();
+            console.log(111)
+             // 兼容写法
+            //e.preventDefault ? e.preventDefault() : e.returnValue = false;
+        }
+    </script>
+</body>
+</html>

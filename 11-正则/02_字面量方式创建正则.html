@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         *  字面量创建：
+         *  语法：var reg = /规则/模式修正符;
+         * 
+         *  字面和new RegExp 构造函数方式创建正则的区别？
+         *  1. 字面创建规则中不能有变量
+         *  2. 构造函数创建，规则中可以有变量
+         * 
+         */
+        var reg1 = /ab/i;// 字符串中是否有连续的ab子串，不区分大小写
+        var reg2 = /"ab"/i;// 字符串中是否有连续的 "ab"子串，不区分大小写
+        var str1 = 'des"ab"fsafd';
+        console.log(reg1.test(str1))//true
+        console.log(reg2.test(str1))//true
+
+        var reg3 = new RegExp('ab','i');
+        console.log(reg3.test(str1));//true
+
+
+        // 字面量创建和 构造函数创建的区别 ==> 规则是否可以有变量
+        var p = 'ab';
+        var reg1 = /p/;// 检测子传中是否有p字符，而不是p变量中存的 ab值
+
+        // 要求规则是 abc
+        var reg2 = new RegExp(p+"c");
+        console.log(reg1.test('abc123'))//false
+        console.log(reg2.test('abc123'))//true
+    </script>
+</body>
+</html>

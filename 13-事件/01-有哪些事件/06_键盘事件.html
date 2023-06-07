@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <script>
+        var myInput = document.querySelector('input')
+        myInput.onkeydown = function(){
+            // console.log('有键盘被按下了')
+        }
+        myInput.onkeyup = function(){
+            // console.log('按键抬起触发')
+        }
+        myInput.onkeypress = function(){
+            console.log('shawanyi')
+        }
+    </script>
+</body>
+</html>

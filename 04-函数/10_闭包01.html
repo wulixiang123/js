@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         *  在函数作用域外，想要读取函数内部的局部变量
+         *  
+         *  闭包：
+         *      产生的条件：
+         *          （1）函数嵌套函数
+         *          （2）函数中的引用地址被外部变量接收了
+         * 
+         *  什么是闭包？
+         *      能够读取其他函数局部变量的函数，称为闭包【内部函数】
+         */
+        function fn(){
+            var a = 10;
+            console.log(a);
+            function f2(){
+                console.log(a);
+            }
+            return f2;
+        }
+        var f222 = fn();
+        f222();
+
+        // console.log(a);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            position: absolute;
+            left:100px;
+            top:100px;
+            width:100px;
+            height:100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script>
+        // var myBox = document.querySelector('#box')
+        // var t = 0
+        // var timeStep = 10
+        // var target = 500
+        // var duration = 5000
+        // var begin = parseInt(getComputedStyle(myBox,null).left)
+        // var s = target - begin
+
+        function linear(t,b,s,d){
+                return s/d*t+b;
+        }
+
+        function animate(ele,attr,target,duration=2000){
+            var t = 0
+            var timeStep = 10
+            var begin = parseFloat(getComputedStyle(ele,null)[attr])
+            var s = target - begin
+        // var timer = null
+        ele.timer = setInterval(() => {
+           t = t+timeStep
+           if(t>=duration){
+            clearInterval(ele.timer)
+            myBox.style.left = target +'px'
+            return
+            
+           }
+           var nowLeft = linear(t,begin,s,duration)
+           ele.style[attr] = nowLeft +'px'
+        }, timeStep);
+    }
+    var myBox = document.querySelector('#box')
+    animate(myBox,'left',500,5000)
+    // animate(myBox,'width',500,5000)
+    </script>
+</body>
+</html>

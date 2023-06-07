@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .wrapper {
+            position: relative;
+            width: 800px;
+            height: 300px;
+            border: 5px solid red;
+            margin: 100px auto;
+        }
+
+        .wrapper .swipper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .wrapper .swipper li {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .wrapper .swipper li.active {
+            z-index: 1;
+        }
+
+        .wrapper .swipper li img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .wrapper .dots {
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            z-index: 10;
+            margin-left: -100px;
+            width: 200px;
+            height: 30px;
+            text-align: center;
+        }
+
+        .wrapper .dots li {
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            border-radius: 50%;
+            background-color: gray;
+            opacity: 70%;
+            border: 1px solid red;
+            cursor: pointer;
+        }
+
+        .wrapper .dots li.active {
+            background-color: red;
+        }
+
+        .wrapper .btn {
+            position: absolute;
+            top: 50%;
+            z-index: 10;
+            margin-top: -22px;
+            width: 26px;
+            height: 44px;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: white;
+            line-height: 44px;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .wrapper .leftBtn {
+            left: 0;
+        }
+
+        .wrapper .rightBtn {
+            right: 0;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper" id="wrapper1">
+        <ul class="swipper">
+            <li class="active"><img src="./img/1.jpg" alt=""></li>
+            <li><img src="./img/2.jpg" alt=""></li>
+            <li><img src="./img/3.jpg" alt=""></li>
+            <li><img src="./img/4.jpg" alt=""></li>
+            <li><img src="./img/5.jpg" alt=""></li>
+        </ul>
+        <ul class="dots">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="leftBtn btn">&lt;</div>
+		<div class="rightBtn btn">&gt;</div>
+    </div>
+
+    <script src="./js/utils.js"></script>
+    <script src="./js/animate.js"></script>
+
+    <script>
+        //1. 获取要操作的元素
+        // 1-1. 先获取最外层容器
+        // 1-2. 通过该容器去查找内部节点
+        var myWrapper = document.querySelector('#wrapper1')
+        var myLis = document.querySelectorAll('.swipper li')
+        var myDots = document.querySelectorAll('.dots li')
+        
+        var leftBtn = document.querySelector('.leftBtn')
+        var rightBtn = document.querySelector('.rightBtn')
+
+        var index = 0// 协同小圆点和图片的大总管
+        var timer = null// 定时器
+        var count = myLis.length-1// index 索引值的上限
+        timer = setInterval(autoMove,1500)
+        function autoMove(){
+            // 控制下标在数组范围之内
+            index++
+            if(index>count){
+                index=0
+            }
+             // 根据下标让对应下标的图片显示，让对应下标的小圆点变红
+            // 图片：让当前下标的图片，透明度从0-1，让其他的图片透明度变成0
+            focus()
+        }
+            // 移入
+            myWrapper.onmouseenter = function (){
+                clearInterval(timer)
+            }
+            // 移出
+            myWrapper.onmouseleave = function(){
+                timer = setInterval(autoMove,1500)
+            }
+            leftBtn.onclick = function (){
+                index--
+                if(index<0){
+                    index = count
+                }
+                focus()
+            }
+
+            rightBtn.onclick = autoMove
+
+            function focus(){
+                // console.log(index)
+                for(var i = 0;i<myLis.length;i++){
+                    var curLi = myLis[i]
+                    var curDot = myDots[i]
+                    if(i === index){
+                        // 0. 改变图片的层级 1
+                        // 1. 图片透明度变成1
+                        // 2. 小圆点应该有active的class
+                        utils.css(curLi,{zIndex:1})
+                        animate(curLi,{opacity:1},500)
+                        curDot.className = 'active'
+                    }
+                    else{
+                        // 0. zindex :0 
+                        // 1. 图片透明度变为0
+                        // 2. 小圆点class 设为 ''
+                        utils.css(curLi,{zIndex:0})
+                        animate(curLi,{opacity:0},300)
+                        curDot.className = '';
+                }
+            }
+        }
+        // 点击小圆点切换
+        for(var i = 0;i<myDots.length;i++){
+            myDots[i].index = i// 自定义属性绑定索引值
+            myDots[i].onclick = function(){
+                index = this.index// 获取当前点击的小圆点赋值给大总管index
+                focus()// 根据index，焦点对齐
+            }
+        }
+    </script>
+</body>
+</html>

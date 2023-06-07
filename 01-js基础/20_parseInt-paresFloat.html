@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         *  parseInt  :  parse 解析  integer 整数     parseInt   解析成整数
+         *  parseFloat:  parse 解析  float   浮点数   parseFloat 解析成小数
+         */
+
+        /**
+         *  parseInt： 解析字符串：
+         *  1. 忽略首位空格
+         *  2. 解析成整数
+         *  3. 首先拿到字符串第一个字符，判断是不是数字，如果是那么保留，继续看第二个字符，如果是保留，看第三个字符..... 直到遇到不是数字的为止，将前面的数字部分返回
+         *  4. 如果第一个字符不是数字，直接返回NaN
+         *  5. parseInt 不认识小数点
+         * 
+         * 
+         *  parseFloat：
+         *   1. parseFloat认识小数点
+         * 
+         */
+
+        // 1. string  ==> number
+        console.log(parseInt(''));   // NaN
+        console.log(parseInt('   123   ')); // 123
+        console.log(parseFloat('  123  ')); //  123
+        console.log(parseInt('123abc'));    //  123
+        console.log(parseFloat('123abc'));  //  123
+        console.log(parseInt('abc123'));    // NaN
+        console.log(parseFloat('abc123'));  // NaN
+
+        console.log(parseInt('12.05px'));   // 12
+        console.log(parseFloat('12.05px')); // 12.05
+
+        // 2. boolean  ==> NaN
+        console.log(parseInt(true))
+        console.log(parseInt(false))
+
+        console.log(parseFloat(true))
+        console.log(parseFloat(false))
+
+        // 3. null  ==> NaN
+        console.log(parseInt(null)); 
+        console.log(parseFloat(null));
+
+        // 4. undefined    ===>  NaN
+        console.log(parseInt(undefined));
+        console.log(parseFloat(undefined));
+    </script>
+</body>
+</html>

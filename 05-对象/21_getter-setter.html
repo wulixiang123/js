@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         *  1. 了解 getter和setter的概念：
+         *  2. 了解 getter 和 setter的执行时机
+         *      2-1. getter的返回值是什么
+         *      2-2. setter的参数是什么
+         * 
+         * ES6  Object.definedProperty
+         * 
+         *       getter
+         *       setter
+         * 
+         */
+        var user = {
+            name:'孙悟空',
+            age:19,
+            get name(){
+                console.log('获取name的值');
+                return 'xxx'
+            },
+            set name(val){
+                console.log('name的 setter执行了:',val);//假孙悟空
+            },
+            get age(){
+                return 999;
+            },
+            set age(val){
+                console.log('age的setter:',val);//1000
+            }
+        }
+        user.name = '假孙悟空';
+        console.log(user.name);//xxx
+        console.log(user.age);//999
+        user.age = 1000;
+    </script>
+</body>
+</html>

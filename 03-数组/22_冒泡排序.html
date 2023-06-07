@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [5,3,67,32,7,23];
+        for(var i =0;i<arr.length-1;i++){
+            //如果arr的第一个值大于第二个值
+            if(arr[i]>arr[i+1]){
+                // arr的第一个值存在a里
+                var a = arr[i]
+                // arr的第一个值等于arr的第二个位置
+                arr[i]=arr[i+1]
+                //arr的第二个位置就等于较大的值
+                arr[i+1]=a
+            }
+        }
+        console.log(a);
+    </script>
+    <script>
+        var arr = [5,3,67,32,7,23];
+        for (var j = 0; j < arr.length - 1; j++) {
+				//arr.length-1-j  -j即每次比较，都可以减少 比较次数 的次数; -1即每次最后一个数（最大值）都无需比较（不能再继续向下比较）
+				for (var i = 0; i < arr.length - 1 - j; i++) {
+					if (arr[i] > arr[i + 1]) {
+						var tmp = arr[i]
+						arr[i] = arr[i + 1]
+						arr[i + 1] = tmp
+					}
+				}
+			}
+			console.log(arr)
+    </script>
+</body>
+</html>

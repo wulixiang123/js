@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 300px;
+            height: 300px;
+            border: 3px solid red;
+            margin: 90px 0px 0px 160px;
+        }
+        input{
+            margin-left: 160px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+
+    </div>
+    <input type="text" name="" id="">
+    <script>
+        /**
+         * 需求：鼠标在box中移动，实时获取鼠标距离box边缘的横纵坐标，显示在input文本框中
+         * 
+         * 显示效果如下：x: 100, y:200
+         * 
+         */
+        var myDiv = document.querySelector('div')
+        var myInput = document.querySelector('input')
+        myDiv.onmousemove = function(a){
+            // var x = a.offsetX
+            // var y = a.offsetY
+            // myInput.value = 'X轴坐标:'+x+'Y轴坐标:'+y
+            // myInput.value = a.offsetX
+            // myInput.value = a.offsetY
+            a = a || window.event
+            myInput.value = 'x轴:   '+a.offsetX+'     y轴:    '+a.offsetY
+        }
+    </script>
+</body>
+
+</html>

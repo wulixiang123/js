@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function add(a,b){
+            // if(b === undefined){
+            //     b = 100
+            // }
+            b = b ===undefined?100:b
+            return a+b
+        }
+        var c = add(10,20)
+        console.log(c);//30
+
+        function sum(a,b=10){
+            return a+b
+        }
+        console.log(sum(9));//19
+        console.log(sum(9,8));//17
+        
+        // 有默认值的参数，一般放在形参队列的最后，因为实参传递的时候，没有办法跨过前面的参数，直接给后面的赋值
+        function sum2(a = 90,b){
+
+        }
+    </script>
+</body>
+</html>

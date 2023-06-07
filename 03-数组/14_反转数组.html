@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        var arr = [1,2,3,4,5,6];
+        for(var i = 0;i < parseInt(arr.length/2);i++){
+            var a = arr[i];
+            arr[i] = arr[arr.length-1-i];
+            arr[arr.length-1-i]=a;
+        }
+        console.log(arr)
+    </script> -->
+
+
+    <!-- <script>
+        let a = [1,2,3,4,5,6,7]
+        //循环数组一半的次数
+        for(let i = 0 ;i <a.length/2;i++){
+            //存储整数第i位
+        let b = a[i];
+        //翻转整数第i位置与倒数第i的数
+        a[i] = a[a.length-1-i];
+        a[a.length-1-i]=b
+  }
+        console.log(a)
+    </script> -->
+<!-- a[0]=1,a[6]=7 -->
+
+
+    <!-- <script>
+        var a = [1,2,3,4,5,6,7];
+        for(var i = 0;i<a.length/2;i++){
+            var b = a[i];//用b来存a数组的值        值为1     值为7
+            a[i] = a[a.length-1-i];             //a[i]=0 = a[7-1-0]
+            a[a.length-1-i]=b;// a.length-1-i的值为7 = b也就是1
+        }
+        console.log(a);
+    </script>
+
+    <script>
+        var a = [1,2,3,4,5,6,7];
+        a.reverse()
+        console.log(a)
+    </script> -->
+
+
+    <!-- <script>
+        var a = [1,2,3,4,5,6,7];
+        for(var i = 0;i<parseInt(a.length/2);i++){
+            var b = a[i];
+            // console.log(b);//123
+            a[i] = a[a.length-1-i];
+            console.log(a[a.length-1-i]);//765
+            a[a.length-1-i]=b;
+        }
+        console.log(a);
+    </script> -->
+
+
+
+
+    <script>
+        var arr = [1,2,3,4,5,6,7];
+        for(var i = 0;i<parseInt(arr.length/2);i++){
+            var a = arr[i]//1
+            arr[i]=arr[arr.length-1-i]//7
+            arr[arr.length-1-i] = a
+        }
+        console.log(arr);
+    </script>
+</body>
+</html>

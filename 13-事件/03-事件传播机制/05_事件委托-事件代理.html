@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <button>新增一个li 444</button>
+
+    <script>
+        var myLi = document.querySelectorAll('li')
+        var myButton = document.querySelector('button')
+        var myUl = document.querySelector('ul')
+
+        for(var i = 0; i<myLi.length;i++){
+            myLi[i].onclick = function(){
+                console.log(this.innerText)
+            }
+        }
+
+
+        // 新增的li 444 在绑定事件的时候还没有，是后添加的。我们称之为未来元素
+        myButton.onclick = function(){
+            var newli = document.createElement('li')
+            newli.innerText = 444;
+            myUl.appendChild(newli);
+            newli.onclick = function(){
+                console.log(this.innerText)
+            }
+        }
+    </script>
+</body>
+</html>

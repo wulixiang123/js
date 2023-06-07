@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * isNaN: 如果这个值不是数字[NaN]，返回true，是数字返回false
+         * is Not a number
+         */
+        console.log(isNaN('10')); // 遇到字符串的时候，先将值 Number一下，在用isNaN判断
+        console.log(isNaN(10));
+        console.log(isNaN('10px'));
+        console.log(isNaN(null));
+        console.log(isNaN(NaN));//true
+    </script>
+</body>
+</html>

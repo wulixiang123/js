@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        爱好：
+        <input type="checkbox" name="hobby" id=""> 台球
+        <input type="checkbox" name="hobby" id=""> 篮球
+        <input type="checkbox" name="hobby" id=""> 羽毛球
+        <input type="checkbox" name="hobby" id=""> 乒乓球
+
+        <div>
+            <input type="checkbox" name="checkAll" id=""> 全选 / 反选
+        </div>
+    </div>
+
+    <script>
+         /**
+         *  需求：
+         * 1. 当所有的爱好都被选中时，全选被选中
+         * 2. 当点击全选被选中时，上面的爱好也都被选中，当点击全选是未选中时，上面的爱好也都不选中
+         */
+        // !!!!!!!!!!!!!!!!!!!!!!!!!注意 取其它元素需要加中括号
+         var myInput = document.querySelectorAll('[name=hobby]');
+         var myDiv = document.querySelector('[name=checkAll]');
+
+         /**
+         *  思路：
+         *  1. 给复选框，绑定点击事件
+         *  2. 获取全选反选复选框最新的checked值
+         *  3. 循环遍历 hobbys，修改每一个的checked值为 全选反选获取到的最新的checked值即可
+         */
+        myDiv.onclick = function(){
+            // this.checked判断input框是否被选中
+            var checked = this.checked;
+            for(var i = 0;i<myInput.length;i++){
+
+                myInput[i].checked = checked
+            }
+        }
+        for(var i = 0;i<myInput.length;i++){
+            myInput[i].onclick = function(){
+                var count = 0;
+                for(var j = 0;j<myInput.length;j++){
+                    count = count+myInput[j].checked;
+                }
+                if(count===myInput.length){
+                    myDiv.checked = true
+                }else{
+                    myDiv.checked = false;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

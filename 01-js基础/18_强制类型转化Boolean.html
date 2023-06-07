@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 其他类型转化为 布尔值类型
+         * string ==> boolean
+         * number ==> boolean
+         * null   ==> boolean
+         * undefined ==> boolean 
+         */
+
+        // 1. 字符串强转布尔值： '' 是 false 其他都是true
+
+        var str = '';    // false boolean
+        //str = '     '; // true boolean
+        //str = '123';   // true boolean
+        //str = '0';     // true boolean
+
+        //str = 'abc';   // true boolean
+
+        var res = Boolean(str);
+        console.log(str, typeof str, res, typeof res);
+
+        // 2. 数字强转布尔值: 0, NaN 是false 其他都是true
+
+        var num = 0;               //false 'boolean'
+       //num = NaN;                //false 'boolean'
+
+       //num = 123;                //true 'boolean'
+       //num = -29;                //true 'boolean' 
+       //num = 0.123;              //true 'boolean' 
+       //num = -0.98;              //true 'boolean'
+       //num = Infinity;           //true 'boolean'
+
+        res = Boolean(num);
+        console.log(num, typeof num, res, typeof res);
+
+        // 3. null    ==>  false 
+        res = Boolean(null);       // false boolean
+
+        console.log('null: ',res, typeof res);
+
+        // 4. undefined  ==> false
+
+        res = Boolean(undefined);  // false boolean
+        console.log('undefined: ', res, typeof res);
+
+        /***
+         *  ''  0  NaN  null  undefined   强转之后是false ，其他都是true
+         * 
+         */
+
+    </script>
+</body>
+</html>

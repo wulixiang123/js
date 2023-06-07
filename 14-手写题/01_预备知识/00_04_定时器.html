@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>取消timer1</button>
+    <button>取消timer2</button>
+    <script>
+
+        /**
+         * BOM: Browser Object Model : 浏览器对象模型
+         * 定时器：
+         *      1. setTimeout: 
+         *      2. setInterval:
+         * 
+         */
+
+        var timer1 = setTimeout(function(){
+            console.log('我爆炸了1次')
+        },3000)
+        var timer2 = setTimeout(function(){
+            console.log('我爆炸了2次')
+        },3000)
+
+        var btn1 = document.querySelectorAll('button')[0]
+        var btn2 = document.querySelectorAll('button')[1]
+
+        btn1.onclick = function(){
+            // clearTimeout清除定时器
+            clearTimeout(timer1)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>点名器</h3>
+    <div id="name"></div>
+    <button>开始</button>
+    <button>结束</button>
+
+    <script>
+      var startbtn = document.querySelectorAll("button")[0];
+      var endbtn = document.querySelectorAll("button")[1];
+      var myDiv = document.querySelector("#name");
+      var timer = null;
+
+      var users = ["孙悟空", "猪八戒", "沙悟净", "唐僧", "美猴王"];
+      startbtn.onclick = function () {
+        // 此处必须写timer
+        timer = setInterval(() => {
+          // 向下取整随机小数*5 取到值为0.1-0.9*5 向下取整后值为0-4
+          var index = Math.floor(Math.random() * users.length);
+          myDiv.innerHTML = users[index];
+        }, 1000 / 24);
+      };
+      endbtn.onclick = function () {
+        // clearInterval解除计时器
+        clearInterval(timer);
+      };
+    </script>
+  </body>
+</html>

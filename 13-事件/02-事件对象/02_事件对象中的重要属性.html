@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 300px;
+            height: 300px;
+            border: 3px solid red;
+            margin: 100px 160px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script>
+        var myDiv = document.querySelector('div')
+        myDiv.onclick=function(e){
+            // 兼容ie6,7,8
+            e = e||window.enent
+            // 1. e.target 事件源对象，事件发生时发生在谁身上
+            console.log('事件发生在:',e.target,'身上')
+             // 2. e.type: 事件类型
+            console.log('事件的类型:',e.type)
+            // 3. 事件发生时，点击位置距离可视区的距离
+            console.log('可视区位置x轴:',e.clientX,'y轴',e.clientY)
+             // 4. offsetX  offsetY :鼠标点击的位置距离内边框的距离
+            console.log('距离内边框的距离x轴:',e.offsetX,'y轴',e.offsetY)
+            // 5. pageX pageY: 鼠标点击位置距离文档的x 和y的距离[包括滚过距离]
+            console.log('距离文档顶端的距离x轴',e.pageX,'y轴',e.pageY)
+        }
+    </script>
+</body>
+</html>

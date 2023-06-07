@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * js代码由两部分组成: 没有值,没有办法用变量接受
+         * 1-1.赋值语句:
+         * 1-2逻辑判断语句:
+         * 1-3循环语句
+         * 1-4.switch...case语句
+         * 1.js语句:
+         * 2.js表达式:是有值的,可以用一个变量接受,并打印输出
+         * 2-1.变量、常量
+         * 2-2.三元表达式
+         * 2-3.逻辑运算表达式
+         * 2-4.函数的调用
+         */ 
+        /**
+         * 赋值语句:
+         * 1.使用var声明一个变量
+         *      1-1.变量的作用:存储值和代表值的
+         * 
+         * 2.var是js自己用的声明变量的关键字,因此,声明变量,变量的名字不能使用js的关键字
+         * 
+         * 3.字面量:
+         *      值的类型:数字、字符串、null、undefined、boolean、object
+         *      3-1.数字:
+         *      3-2.字符串:必须要有引号:
+         *              3-2-1.单引号:以单引号开始,就要以单引号结束
+         *              3-2-2.双引号:以双引号开始,就要以双引号结束
+         * 
+         * 4.变量的命名---标识符:
+         *  在js中,用户可以自定义名字的地方就叫做标识符{变量名、类名、方法名}
+         * 标识符命名:
+         * 1.标识符只能有 字母、数字、下划线、$符 四部分组成
+         * 2.只能以字母、下划线、$符开头,不能以数字开头
+         * 3.变量如果有多个单词组成:
+         *      3-1.驼峰命名法  camelCase:  aaaBbbCcc  ==> userInfo
+         *      3-2.短横杠命名法 kebab-case:aaa_bbb_ccc ==>user_info
+         * 4.自定义标识符,不能使用js的关键字{现在js已经在用的}和保留字{现在没用以后可能会用}
+         * 5.标识符,严格区分大小写
+         */
+        var a = 111;//存储值
+        var b = 222;
+        var str = '我是汉字';
+
+        var $ = 123;
+        console.log($)
+        
+         // var 1abc = '我是数字开头变量'; 报错：不能以数字开头
+        var a1b = 'a1'
+        var $a222 = 'a2'
+        var _cd123 = 'cd123'
+
+        var abc = '123'
+
+        // console.log(a)
+    </script>
+</body>
+</html>

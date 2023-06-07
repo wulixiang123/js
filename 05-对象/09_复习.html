@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 1. 创建对象：
+         *    1-1. 字面量：var obj = {}
+         *    1-2. 构造函数的方式： function 
+         *    1-3. Object  new Object
+         * 
+         * 2. 操作属性的两种方式：
+         *    2-1. . 语法
+         *    2-2. [] 语法 
+         *    核心差别：[]语法可以使用变量
+         *    目前应用：for in 循环，遍历对象
+         * 3. 属性操作：
+         *    3-1. 读取： obj['name'] obj.name
+         *    3-2. 赋值|修改： obj['name'] = 'xxx'  obj.name = 'xxx'
+         *    3-3. 属性的删除： delete obj['name']   delete obj.name
+         *    3-4. 复制对象： var obj2 = {...obj1}
+         *    3-5. 检测一个对象是否有某个属性：属性名 in 对象 ，会返回一个boolean
+         * 
+         * 4. 构造函数：
+         *    4-1. 用new 调用的函数
+         *    4-2. 首字母大写
+         *    4-3. 无需返回值，自动返回this[当前new出来实例对象]
+         *    4-4. 构造函数中的this，永远指向当前new出来的实例对象
+         */
+
+        var obj = new Object();// obj = {}
+
+        console.log(obj, typeof obj);
+
+        
+    </script>
+</body>
+</html>

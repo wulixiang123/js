@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="../12-DOM/02-事件初识/images/1.png" alt="">
+
+    <script>
+        var myImg = document.querySelector('img')
+        myImg.onload = function(){// 当图片下载并加载完成之后调用
+            console.log('图片加载完毕')
+        }
+        console.log('end111111')
+    </script>
+</body>
+</html>

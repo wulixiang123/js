@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 
+         * 
+         */
+
+        // 引用数据类型，不能通过 赋值来赋值一个新的，因为是地址的传递，操作的还是同一个堆内存
+        var obj1 = {
+            name:'atguigu',
+            age:18         
+        }
+        var obj2 = obj1;
+        obj2.name = '尚硅谷';
+        console.log(obj1.name);
+
+         // 通过json转化，对对象进行拷贝，可以拷贝属性，属性也可以进行深拷贝
+        // 不能够拷贝方法
+        var obj1 = {
+            name:'atguigu',
+            age:18,
+            address:{
+                city:'北京'
+            },
+            say:function(){
+                console.log('say')
+            }
+        }
+        var obj2 = JSON.parse(JSON.stringify(obj1));
+        console.log('obj2:',obj2);
+        obj1.name = '尚硅谷';
+        console.log(obj1,obj2);//实现了对象复制
+
+        obj1.address.city = '上海';
+        console.log(obj1,obj2);
+        console.log(obj1.address === obj2.address);
+    </script>
+</body>
+</html>

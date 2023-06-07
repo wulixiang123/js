@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            position: absolute;
+            left:100px;
+            top:100px;
+            width:100px;
+            height:100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script>
+        var myBox = document.querySelector('#box')
+        var t = 0
+        var timeStep = 10
+        var target = 500
+        var duration = 5000
+        var begin = parseInt(getComputedStyle(myBox,null).left)
+        var s = target - begin
+
+        function linear(t,b,s,d){
+                return s/d*t+b;
+        }
+
+        var timer = null
+        timer = setInterval(() => {
+           t = t+timeStep
+           if(t>=duration){
+            clearInterval(timer)
+            myBox.style.left = target +'px'
+            return
+            
+           }
+           var nowLeft = linear(t,begin,s,duration)
+           myBox.style.left = nowLeft +'px'
+        }, timeStep);
+    </script>
+</body>
+</html>

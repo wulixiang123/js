@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /***
+         *   &&  与
+         *   ||  或
+         *   !   非
+         * 
+         *   1. &&:
+         *     语法： 
+         *     let 整体表达式的值 = 表达式1 && 表达式2
+         * 
+         *     （1）如果表达式1 的布尔值为真，那么整体表达式的值就是表达式2的值
+         *      (2) 如果表达式1 的布尔值为假，那么整体表达式的值就是表达式1的值
+         * 
+         *      与运算：两边都为真才为真，两边只要有一边为假，即为假
+         *  
+         *   布尔值为假的： 0  NaN ''  null undefined
+         * 
+         *   与运算又叫断路运算：当表达式1的布尔值为假时，表达式2不执行
+         */
+
+        console.log(5 && 8);
+        console.log('   ' && NaN);
+        console.log(false && true);
+        console.log(NaN && null);
+        
+
+        var a = 1;
+
+        false && ++a; // 断路操作，当表达式1的布尔值为假时，表达式2不执行
+
+        console.log(a);
+
+
+        var b = 2;
+        true && ++b;
+        console.log(b);
+
+    </script>
+</body>
+</html>

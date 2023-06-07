@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id ="id1">
+        <img src="" alt="">
+        <button>上一张</button>
+        <button>下一张</button>
+    </div>
+    <script>
+        var myId1 = document.getElementById('id1');
+        var myimg = myId1.getElementsByTagName('img')[0];
+        var myBotton = myId1.getElementsByTagName('button');
+        console.log(myId1,myimg,myBotton);
+
+        var myId = document.querySelector('#id1');
+        var myImg = document.querySelector('img');
+        var mybotton = document.querySelectorAll('button')
+        console.log(myId,myImg,mybotton);
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         *  string number boolean  null undefined  ==> string | number | boolean的转化
+         * 
+         *  其他类型转 字符串
+         *  1. String(变量)    构造函数转化
+         *  2. 变量.toString() 方法转化
+         * 
+         */
+
+        var a = 'abc';
+
+        var b = String(a);
+        console.log(a,b, typeof b);//abc,abc,string
+
+        // 数字通过String 强转字符串
+        a = 123;
+        b = String(a);
+        console.log(a, typeof a); //123,number
+        console.log(b, typeof b);//123,string
+        // 1. String强转字符串，不会影响原数据的值和类型
+        // 2. String有返回值，返回值是转化后的字符串
+
+        a = -9.8;
+        b = String(a);
+        console.log(a, typeof a); 
+        console.log(b, typeof b);
+
+
+        a = NaN;
+        b = String(a);
+        console.log(a, typeof a);  // 'NaN' number
+        console.log(b, typeof b);//NaN string
+
+        // Boolean 强转字符串
+        a = true;
+        b = String(a);
+        console.log(a, typeof a, b, typeof b);  //'true' 'string'
+
+        a = false;
+        b = String(a);
+        console.log(a, typeof a, b, typeof b); // 'false' 'string'
+
+        // null 通过 String 强转
+        a = null;
+        b = String(a);
+
+        console.log(a, typeof a); // 'null' 'object'
+        console.log(b, typeof b);//null string
+
+        // undefined 通过String 强转
+        a = undefined;
+        b = String(a)
+        console.log(a, typeof a);// 'undefined' 'undefined'
+        console.log(b, typeof b);//undefined string
+    </script>
+</body>
+</html>

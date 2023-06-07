@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 数据类型
+         *  1. 基本数据类型
+         *  2. 引用数据类型： 对象、数组、函数、正则.....
+         * 
+         *  一、数组的创建：
+         *   索引/下标     0     1    2    3
+         *  1. var arr = ['aa','bb','cc','dd'];
+         * 
+         *  2. 数组的元素可以是任意类型，可以不相同
+         *     var arr2 = [88,99,'zz','xx',[3,4],undefined,null]
+         * 
+         *  3. 数组有一个属性 length，是数组的长度【元素的个数】
+         *     3-1. 属性： 有主人的变量.也是用来存储值和代表值的
+         * 
+         *  4. 通过下标，可以访问数组中的元素
+         */
+
+        var arr = ['aa','bb','cc','dd'];
+        console.log(arr.length);
+        console.log(arr[0]);// 通过下标获取数组中的第 0 个元素
+
+        console.log(arr[2]);
+
+        console.log(arr[3]); // 数组的最后一个元素的下标 和 数组的长度有一个关系
+
+        console.log(arr[arr.length - 1]);
+
+    </script>
+</body>
+</html>

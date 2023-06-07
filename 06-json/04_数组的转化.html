@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [
+            {
+                id:1,
+                title:'今天天气真不错',
+                isDone:false
+            }
+        ];
+        var arrStr = JSON.stringify(arr);// 可以将元素是对象的数组，转化为JSON格式的字符串
+        console.log('arrStr:',arrStr,'arrStr的类型:',typeof arrStr);
+
+        var newArr = JSON.parse(arrStr);// json格式的数组 - 字符串
+        console.log('newArr的值:',newArr,'newArr是否是数组类型:',newArr instanceof Array,'newArr是否是数组类型的另一种方法:',Array.isArray(newArr));
+
+        console.log(newArr[0].title);//可以还原成数组和对象
+    </script>
+</body>
+</html>

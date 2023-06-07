@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 创建数组的方式一： []
+        var arr = []; // 创建了一个空数组
+        console.log(arr.length);// 空数组长度是 0，因为没有元素
+
+        // 方式二： new Array()   Array 是一个构造函数，是js内置的，该构造函数可以用来创建数组
+
+        // 如果是多个参数是数组的元素
+        var arr2 = new Array(1,3,4,'aa'); // var arr2 = [1,3,4,'aa']
+        console.log(arr2,arr2[1]);
+
+        // 如果参数是一个，表示创建的数组长度是几
+        var arr3 = new Array(5); // 创建一个长度是5的数组，数组元素是5个undefined
+        console.log(arr3, arr3[0],arr3[1], arr3[2],arr3[3],arr3[4]);
+
+    </script>
+</body>
+</html>

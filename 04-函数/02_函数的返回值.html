@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         *  接收参数求和
+         *  函数的返回值： return xxxx;
+         * 
+         *  1. 如果函数没有return 函数也有默认的返回值 值是undefined
+         *  2. 如果有return, return 什么，函数调用执行的结果就是什么
+         *  3. return 后面的代码不执行
+         */
+
+        function sum (a,b,c){
+            var a = a+b+c;
+            // 使用var 在函数内声明的变量，有效范围仅在函数体内可以使用，在函数外不能使用
+            console.log(a);
+            return b;// return 什么，函数调用执行的结果就是什么
+            console.log(111);// return 语句后面的代码不执行
+            console.log(222);
+
+        }
+        var b = sum(1,2,3);
+        console.log(b);
+    </script>
+</body>
+</html>

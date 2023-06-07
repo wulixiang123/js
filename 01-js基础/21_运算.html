@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /***
+         *  算数运算符： + - * / %
+         *  
+         *  + 
+         *  1. 算数的 + 
+         *  2. 字符串的拼接 连接符
+         * 
+         */
+
+        var a = 1;
+        var b = 2;
+        var c = a + b; // + 算数 + 
+        console.log(c);
+
+        // 2. 字符串拼接： + 运算符两侧，有一侧是字符串，那么 + 就是字符串拼接
+        var str1 = 'ab';
+        var str2 = '23';
+
+        console.log(str1 + str2); // ab23
+
+        console.log('123' + 23); //  '123' + 23.toString()   12323
+        // 隐式类型转化
+        
+        console.log(false+1)//1
+        console.log(1 + true); // 1 + Number(true)  ===> 2
+        console.log(true + false); // Number(true) + Number(false) ==> 1
+
+        console.log(1 + null); // 1 + Number(null) ==> 1 + 0 ==> 1
+
+        console.log(1 + undefined); //1 + Number(undefined) ==> 1 + NaN ==> NaN
+        // NaN 和 任何数运算值都是 NaN
+
+        console.log('1' + NaN);//  1 + NaN.toString() ==> '1' + 'NaN' ==> '1NaN'
+
+        console.log('1' + undefined); // '1' + String(undefined) ==> '1' + 'undefined'
+
+        console.log('1' + true); // '1' + true.toString() ==> '1' + 'true' ==> 1true
+
+        console.log('1' + 2 + 3 + 4 + 5 + true);// 12345true
+
+        console.log(1 + 2 + 3 + '4' + true);// 64true
+
+        console.log(NaN + 2000); // NaN
+
+        console.log(NaN + '2000'); // NaN2000
+
+
+
+
+
+    </script>
+</body>
+</html>

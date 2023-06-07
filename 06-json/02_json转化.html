@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 1. 对象向json格式字符串转化，没有严格要求，通过stringify可以完成转化，并且给属性和属性值，都加上双引号
+         * 2. 如果不是json格式的字符串，无法通过parse方法还原解析成对象
+         * 
+         */
+        var jsonStr1 = "{'name':'孙悟空','age':18}";//不是json格式的字符串
+        // var json1 = JSON.parse(jsonStr1);
+        // console.log(json1,'json1的类型是:',typeof json1);
+
+        var jsonStr1 = '{"name":"孙悟空","age":18}';
+        var json1 = JSON.parse(jsonStr1);
+        console.log(json1,'json1的类型是:',typeof json1);
+
+        var json2 = {// 不是json格式的对象
+            'name':'沙和尚',
+            age:19
+        }
+        var jsonStr2 = JSON.stringify(json2);// 可以转化，不会报错，转化完是加""的json格式字符串
+        console.log(jsonStr2,'sconStr2的类型是:',typeof json2);
+    </script>
+</body>
+</html>

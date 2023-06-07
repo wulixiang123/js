@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function Person(){
+            
+        // }
+
+        // var p1 = new Person();
+        // console.log(p1); // Person {}
+
+        function Person(name, age){
+            this.name = name;
+            this.age = age;
+            // return 123; // 构造函数返回基本数据类型，不生效，还是返回this
+            // return {}; // 返回引用数据类型会导致接收不到 this了
+            // return function(){}
+        }
+        var p1 = new Person('张三', 19);
+        console.log(p1);
+    </script>
+</body>
+</html>

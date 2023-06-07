@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>1111</div>
+    <div>2222</div>
+    <div>3333</div>
+    <div>4444</div>
+    <script>
+        var oDivs = document.getElementsByTagName('div');
+        // 通过标签名获取div元素的集合[HTMLCollection],是伪数组
+        console.log(oDivs);
+        //oDivs.push(123); // 伪数组不能用数组的方法
+
+        console.log(oDivs[0]);
+
+        console.log(oDivs[oDivs.length - 1]);
+
+        //遍历伪数组集合
+        for(var i = 0;i<oDivs.length;i++){
+            console.log(oDivs[i]);
+        }
+
+        //将伪数组转化为普通数组
+        // 1. Array.prototype.slice.call(伪数组,0);
+        // 2. Array.from(伪数组)
+        // 3. [...伪数组]
+
+        // var arr = Array.prototype.slice.call(oDivs,0);
+        // var arr = Array.from(oDivs);
+        var arr = [...oDivs];
+        arr.push(5);
+        console.log(arr);
+    </script>
+</body>
+</html>

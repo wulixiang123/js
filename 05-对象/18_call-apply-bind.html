@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function study(name,time){
+            console.log(name,time);
+            console.log(this);
+        }
+        study('名字',20)
+
+        
+        var arr1 = {
+            name:'孙悟空',
+            time:18
+        }
+        var arr2 = {
+            neme:'猪八戒',
+            time:16
+        }
+        study.call(arr1,'yy',10);//改变study的指向为arr1
+
+
+        study.apply(arr2,['xx',20])
+
+
+        var resFn = study.bind(arr1,'唐僧',21);
+        console.log(resFn);
+        resFn();
+
+
+        var arr = [1,2,3,4];
+        var obj = {
+            name:'尚硅谷'
+        }
+        console.log(arr instanceof Array);//true
+        console.log(arr instanceof Object);//true
+        console.log(arr);
+
+        console.log(obj instanceof Object);//true
+        console.log(obj instanceof Array);//false
+        console.log(obj);
+
+
+        var b1 = true;
+        console.log(b1.toString());
+        console.log(b1.toString===Boolean.prototype.toString);
+
+        console.log(Object.prototype.toString.call(true));
+        console.log(Object.prototype.toString.call(1));
+        console.log(Object.prototype.toString.call(null));
+        console.log(Object.prototype.toString.call(undefined));
+        console.log(Object.prototype.toString.call('123'));
+        console.log(Object.prototype.toString.call([]));
+        console.log(Object.prototype.toString.call({}));
+        console.log(Object.prototype.toString.call(fn));
+        function fn(){
+
+        }
+        function getType(param){
+            return Object.prototype.toString.call(param).slice(8,-1);
+        }
+
+        console.log(getType(1));
+        console.log(getType(true));
+        console.log(getType([]));
+        console.log(getType({}));
+        console.log(getType(null));
+
+        if(getType(1)==='Number'){
+            console.log('数字')
+        }
+        if(getType(true)==='Boolean'){
+            console.log('布尔值')
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="bg1 border2 wrapper"></div>
+    <script>
+        var reg = /^1[3-9]\d{9}$/;
+        var phone = '13094833923';
+        console.log(reg.test(phone));
+
+         // \b 按照单词匹配
+        var className = "bg1 border2 wrapper"
+        var reg = /\bborder2\b/;
+        console.log(reg.test(className));
+    </script>
+</body>
+</html>

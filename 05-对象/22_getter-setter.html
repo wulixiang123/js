@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var name = 'atguigu';
+        var user ={
+            age:19,
+            get name(){
+                console.log('获取name的值');
+                return name;
+            },
+            set name(val){
+                console.log('name 的setten执行了:',val);//尚硅谷
+                name = val;
+            }
+        }
+        console.log(user.age);//19
+        console.log(user.name);//atguigu
+        user.age = 29;
+        user.name = '尚硅谷';
+
+        console.log(user.name);//尚硅谷
+
+        user.name = '尚硅谷';
+        console.log(user.name);//尚硅谷
+    </script>
+</body>
+</html>

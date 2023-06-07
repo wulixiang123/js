@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         /**
+         *  函数：
+         * 1. 使用function关键字定义函数
+         * 2. 语法：
+         *      函数定义：function 函数名(形参1,形参2,....){ 函数体 }
+         *      函数名：标识符的一种
+         *          1. 字母、数字、_、$
+         *          2. 不能以数字开头
+         *          3. 不能有关键字和保留字
+         * 3. 函数调用：
+         *      函数名(实参1,实参2,...); ===> 会将函数体中定义的代码，从上到下执行
+         * 
+         * 4. 函数的返回值return
+         * 
+         */
+
+        function say(name,age){ // name 和 age都是形参
+            // 什么是形参,可以理解成函数的变量，可以在函数体内部使用
+
+            console.log('我叫'+name);
+            console.log('今年'+ age +'岁了');
+        }
+         // 调用函数： 函数名(实参1,实参2)  实参===> 字面量
+        say('猪八戒',18);
+        say();// 如果没传实参，形参的值就是undefined
+    </script>
+
+
+    <script>
+        function say(name,age){
+            alert('我叫'+name);
+            alert('今年'+age+'岁了');
+        }
+        say('孙悟空',20);
+    </script>
+</body>
+</html>

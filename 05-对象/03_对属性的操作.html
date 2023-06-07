@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         *  操作对象属性和方法的操作方式：
+         *  1. .语法
+         *  2. []语法
+         * 
+         */
+
+         // 定义的时候：
+        var a = {
+            name:'孙悟空',
+            age:18,
+            eat:function(){
+                console.log('妖怪哪里跑')
+            }
+        }
+        console.log(a.name,a.age);
+        a.eat();
+
+        console.log(a['name'],a['age']);
+        a['eat']();
+    </script>
+
+
+    <script>
+        var str = 'age';
+        var obj2 = {
+            age:19,
+            sex:'girl'
+        }
+        console.log(obj2.str);//undefined
+        // . 语法不能用变量
+        // 读取对象中不存在的属性，值是undefined
+
+        console.log(obj2['str']);//undefined  读取obj2的str属性
+        console.log(obj2[str]);//19     str当做变量处理，所以是读取obj2的age属性
+
+        var str = 'age';
+        var obj = {
+            [str]:19,
+            ['name']:'atguigu'
+        }
+        console.log(obj);
+
+         // 属性名如果不符合标识符规范，需要加引号
+        var obj2 = {
+            'user-name':'尚硅谷',
+            'unse-age':19
+        }
+        console.log(obj2);
+        console.log(obj2['user-name']);
+
+        // 属性名可以不加引号，也可以用但引号，或者是双引号
+        var obj3 = {
+            'name':'atguigu',
+            'age':19
+        }
+        console.log(obj3);
+
+        var obj4 = {
+            "name":"atguigu",
+            "age":20
+        }
+        console.log(obj4);
+
+         /**
+         *  属性操作：
+         *  1. 创建：
+         *     1-1. 在定义对象字面量的时候，直接创建
+         *     1-2. 先创建对象，在添加属性
+         * 
+         */
+
+         var obj5 = {};
+         console.log(obj5);
+         //添加属性
+         obj5.name = 'atguigu';
+         obj5['age']=20;
+         obj5['user-info']='宏福科技园';
+         //属性读取
+         console.log(obj5['name'],obj5.age);
+         //修改属性值
+         obj5['age']=21;
+         obj5['name']='尚硅谷';
+         console.log(obj5);
+
+         //删除属性
+         delete obj5['age'];
+         delete obj5.name;
+         console.log(obj5);
+
+         //属性名重复,后面的值会覆盖前面的值
+         var obj6 = {
+            name:'atguigu',
+            age:20,
+            address:'宏福科技园',
+            name:'尚硅谷'
+         }
+         console.log(obj6);
+         //复制一个对象中所有的属性值
+         var obj7 = {
+            ...obj6
+         }
+         console.log(obj7,obj6===obj7);
+    </script>
+</body>
+</html>

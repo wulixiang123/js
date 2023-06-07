@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+    <script src="../12-DOM/07-操作元素的样式/js/utils.js"></script>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script>
+        var myBox = document.querySelector('#box');
+
+        var beginWidth = utils.css(myBox,'width');
+        var targetWidth = 500;
+        var changeWidth = targetWidth - beginWidth;
+
+        var beginHeight = utils.css(myBox,'height');
+        var targetHeight = 500;
+        var changeHeight = targetHeight - beginHeight;
+
+        var duration = 2000;
+        var t = 0;
+        var timeStep = 10;
+
+        function linear(t,b,s,d){
+            return s / d * t + b;
+        }
+
+        myBox.timer = setInterval(()=>{
+            // 1. 累加时间
+            t += timeStep;
+            // 2. 判断停止条件
+            if(t >= duration){
+                clearInterval(myBox.timer);
+                // 设置目标位置
+                // utils.css(myBox,'width',targetWidth);
+                // utils.css(myBox, 'height',targetHeight);
+                utils.css(myBox,{width:targetWidth, height:targetHeight});
+                return;
+            }   
+            // 3. 计算 t 时间 当前变化到的位置
+            var curWidth = linear(t,beginWidth,changeWidth,duration);
+            var curHeight = linear(t,beginHeight, changeHeight,duration);
+            // 设置值
+            utils.css(myBox,{width:curWidth,height:curHeight});
+        }, timeStep);
+    </script>
+</body>
+</html>

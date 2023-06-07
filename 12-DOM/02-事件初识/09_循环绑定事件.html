@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+    </ul>
+    <script>
+        /**
+         * 需求：点击任意一个li元素，将所有li中的文字变成哈哈哈
+         * 
+         */
+        var myLi = document.querySelectorAll('li');
+         // 循环绑定单击事件
+         for(var i = 0;i<myLi.length;i++){
+            myLi[i].onclick = function(){
+                for(var j = 0;j<myLi.length;j++){
+                    myLi[j].innerHTML = '哈哈哈';
+                }
+            }
+         }
+    </script>
+</body>
+</html>

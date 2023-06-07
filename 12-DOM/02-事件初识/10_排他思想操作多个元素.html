@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+    </ul>
+    <script>
+        var myLi = document.querySelectorAll('li');
+        for(var i = 0;i<myLi.length;i++){
+            myLi[i].index = i;
+            myLi[i].onclick = function(){
+                for(var j = 0;j<myLi.length;j++){
+                    myLi[j].innerText = '哈哈哈';
+                }
+                myLi[this.index].innerText = '嘿嘿'
+            }
+        }
+    </script>
+</body>
+</html>

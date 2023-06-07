@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="checkbox" name="hobby" value="篮球">篮球
+        <input type="checkbox" name="hobby" value="足球">足球
+        <input type="checkbox" name="hobby" value="台球">台球
+        <input type="checkbox" name="hobby" value="球球">球球
+        <button>提交</button>
+    </div>
+
+    <script>
+        // 尤其需要注意 在拿某些属性时,有的需要加中括号获取
+        var hobbys = document.querySelectorAll('[name=hobby]');
+        var btn = document.querySelector('button');
+        // console.log(btn)
+        hobbys = Array.from(hobbys);
+        btn.onclick = function(){
+            var newArr = hobbys.filter(function(item){
+                return item.checked
+            })
+            var data = newArr.map(function(item){
+                return item.value
+            })
+            console.log('data:',data)
+        }
+    </script>
+</body>
+</html>

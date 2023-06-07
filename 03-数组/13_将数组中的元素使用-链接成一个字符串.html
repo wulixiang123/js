@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var stars = ['迪丽热巴','古力娜扎','热依扎','佟丽娅'];
+        var str ='';
+        for(var i = 0; i < stars.length;i++){
+            if(i === stars.length -1){
+                str += stars[i];
+            }
+            else{
+                str += stars[i] + '-'
+            }
+        }
+        console.log(str);
+
+
+
+        // var str2 = '01234567890';
+        // console.log(str2[2],str2.length-1);
+        // console.log(str2.slice(1));
+        // console.log(str2.slice(0,str2.length-1));
+        // console.log(str2.slice(0,-1));
+    </script>
+
+
+
+
+
+    <!-- <script>
+         var stars = ['迪丽热巴','古力娜扎','热依扎','佟丽娅'];
+         var a = '';
+         for(var i= 0;i<stars.length;i++){
+            if(i===stars.length - 1){//如果 i 等于第四个值佟丽娅,
+                a = a + stars[i];    //a的值就为佟丽娅
+            }
+            else{                    //否则
+                a = a + stars[i] + '-'//a的值为 a b c以此输出并加 '-'
+            }
+         }
+         console.log(a);
+    </script> -->
+
+
+
+    <script>
+        var stars = ['迪丽热巴','古力娜扎','热依扎','佟丽娅'];
+        var a = '';
+        for(var i = 0;i<stars.length;i++){
+            if(i ===stars.length-1){
+                a = a+stars[i]
+            }
+            else{
+                a = a + stars[i]+'-';
+            }
+        }
+        console.log(a);
+
+
+         var str2 = '01234567890';
+        console.log(str2[2],str2.length-1);//2,长度减1=10
+        console.log(str2.slice(1));//除了第一个其它全选
+        console.log(str2.slice(0,str2.length-1));
+        console.log(str2.slice(1,-1));//slice(start,end) 1代表的是数组的第一个 -1是数组最后一个
+    </script>
+</body>
+</html>

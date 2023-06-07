@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 拷贝基本数据类型数据拷贝
+        var num1 = 1;
+        var num2 = num1;
+        num2 = 2;
+        console.log(num1,num2);//1,2
+
+
+
+        var obj = {
+            // 私有属性
+            name:'atguigu',
+            sex:'boy',
+            age:{
+                realAge:{
+                    number:35
+                },
+                openAge:{
+                    number:28
+                }
+            }
+        }
+
+        var obj2 = obj;//赋值的是地址
+        console.log(obj,obj2)//内容不变
+        // 改其中任意位置会覆盖之前的值 因为赋值的是地址
+        // obj2.name = '尚硅谷'
+
+
+        // 浅拷贝
+        function clone(obj){
+            var res = {}
+            for(var attr in obj){
+                if(obj.hasOwnProperty(attr)){
+                    res[attr] = obj[attr];
+                }
+            }
+            console.log(res)
+            return res
+        }
+
+        var cloneObj = clone(obj)
+        cloneObj.name = '孙悟空'
+        cloneObj.age.openAge.number=48
+        console.log(cloneObj,obj)
+    </script>
+</body>
+</html>

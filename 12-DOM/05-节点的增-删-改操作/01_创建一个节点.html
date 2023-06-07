@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <script>
+         /**
+         * 在div中创建一个span标签，内容是我是span
+         * 
+         * document.createElement(标签名)
+         * 
+         * 向后追加子节点
+         * 父元素.append(子元素)
+         * 
+         */
+
+        // 获取div
+        var myDiv = document.querySelector('div');
+        // 创建span标签
+        var mySpan = document.createElement('span');
+         // 给span添加内容
+         mySpan.innerHTML = '<a href="http://baidu.com">百度</a>';
+         // 将span追加到div元素标签中
+         console.dir(mySpan);
+
+          // oDiv.append(oSpan);
+         myDiv.appendChild(mySpan);
+
+
+         // 创建一个p标签节点
+         var myP = document.createElement('p');
+         myP.innerHTML = '我是p标签';
+        //  myDiv.append(myP)
+        //  myDiv.append(myP)//只能追加1个值
+         myDiv.appendChild(myP);
+         myDiv.appendChild(myP);//同样只能追加一个值
+    </script>
+</body>
+</html>

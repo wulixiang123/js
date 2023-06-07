@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         *  基本数据类型存的是值，引用数据类型存的是地址
+         * 
+         *  全局作用域【window】，在全局定义的变量和函数，在全局和局部作用域中都可以使用
+         *            在全局定义的变量和函数，最终都会挂载到 window对象下面
+         * 
+         *      全局变量：
+         *          （1）在全局作用域中,定义的变量即为全局变量，不管是否使用var声明，都会出现在window身上
+         *           (2) 在局部作用域中[函数作用域]，没有使用var声明的变量，也是全局变量
+         * 
+         *  局部作用域：函数调用执行时，产生的执行栈内存即为局部作用域
+         * 
+         *      局部变量：（1）函数的形参是局部变量
+         *                （2）函数内部使用 var 声明的变量是局部变量
+         */
+
+         var a = 100;
+         var b = 200;
+         d = 300;
+
+         function fn(){
+            var c = 100;
+            e = 800;
+            console.log(c);//100
+         }
+         fn();
+         console.log(window);//window
+         console.log(fn);
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * null:表示空值,常用来给object类型的数据赋初始值
+         * undefined:变量未定义,只声明没有赋值,值就是undefined
+         * underfunded 是 null 的一种特殊类型
+         * 比较运算知识:
+         * 1.= : 赋值运算 var a = 1;
+         * 2.== :比较运算,只比较值,不比较类型
+         * 3.===:全等比较,即比较值也比较类型
+         */ 
+        var a = null;
+        console.log(a,typeof a); //'object'
+        var b = undefined;
+        console.log(b,typeof b); //typeof undefined 'underfined'
+
+        console.log(1 == '1');//true
+        console.log(1 === '1');//false
+        console.log(null == undefined);//true
+        console.log(null === undefined);//false
+    </script>
+</body>
+</html>

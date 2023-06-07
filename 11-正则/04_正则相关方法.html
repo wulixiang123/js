@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * split('-'):
+         * split(reg) 可以按照正则拆分字符串为一个数组
+         * 
+         */
+        var str = '1-2-3-4-5';
+        console.log(str.split('-')); // ['1', '2', '3', '4', '5']
+
+        str = '1a2B3c4d5';
+        var reg = /[A-z]/;
+        console.log(str.split(reg));// ['1', '2', '3', '4', '5']
+
+
+        /**
+         * search ： 按照正则在字符串中查找，如果找到，返回第一个找到的下标，如果没有返回-1
+         * 
+         */
+        str = "hello abc hello aec afc";
+        /*
+         * 搜索字符串中是否含有abc 或 aec 或 afc
+         */
+        result = str.search(/a[bef]c/);
+        console.log(result);
+
+        /**
+         * match: 
+         * 
+         */
+        str = "1a2a3a4a5e6f7A8B9C";
+        str = "123567654";
+
+        result = str.match(/[a-z]/ig);
+        console.log(result);
+
+        /**
+         *  replace: 实现字符串的 增 删 改
+         * 
+         * 
+         */
+
+        str = "1a2a3a4a5e6f7A8B9C";
+        result = str.replace(/[a-z]/gi , "@_@");// 改
+        // result = str.replace(/[a-z]/gi, ""); // 删
+
+        console.log(result);
+
+        // 增
+        /**
+         *  item: 标识正则匹配到的当前字符
+         *  index: 标识正则匹配到的当前字符对应的索引
+         * 
+         */
+        result = str.replace(/[a-z]/ig, function(item,index){
+            // 返回值就是替换的新内容
+            //   原值   + 新增加的值
+            return item + '@';
+        })
+        console.log(result);
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id=""><button>添加</button>
+    <ul></ul>
+
+    <script>
+        /**
+         * 需求：文本框输入内容，按添加，添加到ul列表中
+         * 1. 如果文本框内容为空，弹框不能为空
+         * 2. 如果是重复的名字，弹框 xxx已存在
+         * 
+         */
+
+         var myInput = document.querySelector('input');
+         var myBotton = document.querySelector('button');
+         var myUl = document.querySelector('ul');
+         
+         myBotton.onclick = function(){
+            var keywords = myInput.value.trim();
+            if(keywords ===''){
+                alert('不能为空');
+                myInput.value=''
+                return
+            }
+            var myLi = document.querySelectorAll('li');
+            myLi = [...myLi];
+            myLi = myLi.map(function(li){
+                return li.innerHTML;
+            }) 
+            if(myLi.indexOf(keywords)!==-1){
+                alert(keywords+'已存在');
+                myInput.value=''
+                return
+            }
+            var myLi = document.createElement('li')
+            myLi.innerHTML = keywords;
+            myUl.appendChild(myLi);
+            myInput.value = '';
+         }
+    </script>
+</body>
+</html>

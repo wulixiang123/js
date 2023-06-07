@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         /**
+         *  for in 循环可以遍历数组，也可以遍历对象
+         *  
+         *  for in循环不仅可以遍历私有属性，也可以遍历公有属性
+         * 
+         *  如果指向遍历私有属性，需要判断是不是私有属性 hasOwnProperty
+         * 
+         * 
+         */
+        
+        // for in 循环，不光可以循环对象，也可以循环数组
+        /**
+         * 如果遍历数组，in 前面的是 index
+         */
+        var arr = [11,22,33,44]
+        for(var index in arr){
+            console.log('下标:',index,'数组中的值:',arr[index])
+        }
+
+         /**
+         * for in 循环遍历对象,不管可以遍历私有属性。还可以遍历公有属性[继承]
+         */
+
+        var obj = {name:'尚硅谷',age:18}
+        // var obj2 = new Object(); Object.prototype
+        obj.__proto__.address = '我是被利用原型链加入的';// 公有属性也可以遍历
+        for(var attr in obj){
+            if(obj.hasOwnProperty(attr)){
+                console.log('属性名:',attr,'属性值:',obj[attr])
+            }
+        }
+        console.log('obj:',obj)
+    </script>
+</body>
+</html>

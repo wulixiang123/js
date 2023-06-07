@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>清除定时器</button>
+
+    <script>
+        // setInterval      循环定时器，每隔一个时间间隔触发一次。
+        // clearInterval    清除定时器
+        var i = 0
+        var timer = setInterval(() => {
+           console.log(++i) 
+        }, 1000);
+
+        console.log('end')
+        console.log(timer,typeof timer)
+
+        var myButton = document.querySelector('button')
+        myButton.onclick = function(){
+            // clearInterval(timer)
+            clearInterval(timer)
+        }
+    </script>
+</body>
+</html>

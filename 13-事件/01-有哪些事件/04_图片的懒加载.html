@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="../12-DOM/02-事件初识/images/1.png" alt="" realImg="../12-DOM/02-事件初识/images/2.png">
+
+    <script>
+        var myImg = document.querySelector('img')
+        var realSrc = myImg.getAttribute('realImg')
+        console.log(realSrc);
+
+        // 创建一个图片对象
+        var newImg = new Image();
+        newImg.src = realSrc;
+        newImg.onload = function(){
+            console.log('目标图片加载完会执行')
+            myImg.src = realSrc
+        }
+    </script>
+</body>
+</html>

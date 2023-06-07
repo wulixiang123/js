@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width:100px;
+            height:100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">1111</div>
+
+    <script>
+         /**
+         * 需求：点击 div 2秒钟之后，让box的背景色变为 蓝色
+         * 
+         * 结论：定期器的回调函数，如果需要用到this，尽量使用箭头函数
+         * 
+         */
+
+         var myBox = document.querySelector('#box')
+
+         myBox.onclick = function(){
+            console.log('this:',this)
+            var _this = this;
+            setTimeout(()=>{
+                this.style.backgroundColor = 'blue'
+            },2000)
+         }
+
+        //  方式二
+         setTimeout(function(){
+            _this.style.backgroundColor = 'blue'
+         },2000)
+
+        //  方式三
+         setTimeout((function(){
+
+         }).call(this),2000)
+    </script>
+</body>
+</html>

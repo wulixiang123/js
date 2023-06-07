@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <button>innerText</button><br>
+    <button>innerHTML</button><br>
+    <button>nodeValue</button>
+
+    <script>
+        var myDiv = document.querySelector('div');
+        var btn1 = document.querySelectorAll('button')[0]
+        var btn2 = document.querySelectorAll('button')[1]
+        var btn3 = document.querySelectorAll('button')[2]
+        // console.log(btn1,btn2)
+        btn1.onclick = function(){
+            myDiv.innerText = '<a href="http://baidu.com">百度</a>'
+        }
+        btn2.onclick = function(){
+            myDiv.innerHTML = '<a href="http://baidu.com">百度</a>'
+        }
+        btn3.onclick = function(){
+            myDiv.nodeValue = '<a href="http://baidu.com">百度</a>'
+        }
+    </script>
+</body>
+</html>

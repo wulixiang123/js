@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * Math.round: 四舍五入
+         * Math.floor: 向下取整
+         * Math.ceil: 向上取整
+         **** Math.random: 随机0-1之间的小数
+         * 
+         */
+
+        console.log(Math.round(4.5));//5
+        console.log(Math.floor(4.99));//4
+        console.log(Math.ceil(4.01));//5
+
+        console.log(Math.random());//0-1之间随机的小数
+
+         /***
+         *  用随机整数 0-10之间的随机整数
+         *  
+         */
+        Math.random()*10;//0-10之间的随机小数
+        console.log(Math.random()*10);
+
+        console.log(parseInt(Math.random()*11));
+        console.log(Math.floor(Math.random()*11));//0-10之间随机的整数
+
+
+        /**
+         *  求 n - m 之间的随机整数【n < m】
+         *  3 - 14 之间的随机整数
+         * 
+         *  1. 0 - 11之间的随机整数        Math.floor(Math.random() * 12)
+         *  2. 在加上3    3-14之间的随机整数
+         *  
+         *  1.  0 - (m-n) 之间的随机整数 ：  Math.floor(Math.random() * (m-n+1))
+         *  2.  再加上 n   Math.floor(Math.random() * (m-n+1)) + n
+         * 
+         */
+
+        /**
+         * 获取 n - m 之间的随机整数
+         */
+        function a(n,m){
+            return Math.floor(Math.random()*(m-n+1))+n;
+        }
+        console.log(1,12);
+    </script>
+
+    <script>
+         function a(n,m){
+            return Math.floor(Math.random()*(m-n+1))+n;
+        }
+        console.log(3,14);
+
+
+        /**
+         *        n m之间的随机整数
+         *  例如：3-13之间的随机整数
+         * 
+         *  Math.floor(Math.random() * (10 + 1)) ==> 0 - 10之间的随机整数
+         * 
+         *  1. 0 - 10 之间的随机整数   10 = 13 - 3 = (m -n)   0-(m-n) 之间的随机整数
+         * 
+         *     Math.floor(Math.random() * (m-n+1));
+         * 
+         *  2. 再加3 就是 3-13之间的随机整数
+         *     
+         *     Math.floor(Math.random() * (m-n+1)) + n;
+         */
+    </script>
+</body>
+</html>

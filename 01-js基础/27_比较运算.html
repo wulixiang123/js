@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /** 
+         * == : 只比较值不比较类型
+         * ===：即比较值也比较类型
+         * != : 
+         * !==:
+         * 
+         * >
+         * <
+         * >=
+         * <=
+         * 
+         */
+
+        // !=
+        console.log('1' != 1); // false
+        console.log('1' !== 1); // true
+
+        // 数字比较
+        console.log(5 > 3);//true
+        console.log(5 >= 6);// false
+
+        // 比较运算 两侧有数字，将另一侧强转成数字在比较
+        console.log(5 > null);// true  5 > Number(null)
+        console.log('5' > '6');// 6
+
+        console.log('56' > 6);// Number(56) > 6 ==> true
+
+        // NaN 跟其他值进行比较运算（> < >= <=），结果都是false
+        console.log(NaN > 6); // false
+        console.log(NaN < 6); // false
+        console.log(NaN < '6'); // false
+        console.log(NaN > '6'); // false
+
+        console.log(NaN === NaN); // false
+        console.log(NaN == NaN); // false
+
+        // 字符串比较运算,比的是 ASCII码
+        // 按位比较
+        console.log('56' > 'a'); // 5的ASCII码和 a的ASCII码
+        console.log('237' > '290');
+
+        console.log(56 > undefined);// Number(undefined) ==>NaN
+        console.log('56' > undefined); //String(undefined) ==> 'undefined'
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /***
+         * let 整体表达式的值 = 表达式1 || 表达式2
+         * 
+         * （1）如果表达式1的布尔值为真，那么整体表达式的值就是表达式1的值
+         * （2）如果表达式1的布尔值为假，那么整体表达式的值就是表达式2的值
+         * 
+         *  或运算：两边只要有一边为真，即为真，两边都为假时，才为假
+         * 
+         *  或运算叫短路运算：如果表达式1的布尔值为真，那么表达式2不执行
+         */
+
+        console.log(5 || 8);
+        console.log(NaN || null);
+
+        var a = 1;
+        true || a++;
+        console.log(a);
+
+        var b = 2;
+        false || b++;
+        console.log(b);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点我</button>
+    <script>
+        // setTimeout设置定时器
+        var time1 = setTimeout(function(){
+            console.log('我爆炸了1次')
+        },1000)
+        var time2 = setTimeout(function(){
+            console.log('我爆炸了2次')
+        },2000)
+
+        console.log(time1,typeof time1)
+
+        var myButton = document.querySelectorAll('button')[0]
+        myButton.onclick=function(){
+            // clearTimeout清除定时器
+            clearTimeout(time1)
+        }
+    </script>
+</body>
+</html>

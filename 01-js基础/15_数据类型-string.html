@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         /***
+         *  字符串：在js中通过引号定义的值就是字符串。既可以是单引号，也可以是双引号
+         *          引号必须成对出现。
+         * 
+         */
+        var str1 = '123';
+            str1 = "abc"; //a"b"c
+
+            // 引号嵌套，字符串中有引号跟字符串的边界引号一致。===> 转义符  \
+        /***
+         *  \" ==> "
+         *  \' ==> '
+         *  \\ ==> \
+         *  \n ==> 换行
+         *  \t ==> 制表符 tab
+         *  \r ==> window 回到当前行首 
+         *          mac   表示换行
+         *          linux \n表示换行
+         */
+        str1 = "a\"b\"c";
+        str1 = 'a"b"c';
+
+         // 空格和换行问题
+         str1 = '床前明月光,\
+                 疑是地上霜.\
+                 举头望明月,\
+                 低头思故乡.\
+                 ';
+        str1 = '床前明月光,\n疑是地上霜.\n举头望明月,\n低头思故乡.';
+
+        str1 = '床前明月光,\t疑是地上霜.\t举头望明月,\t低头思故乡.';
+
+        str1 = '床前明月光,\r\n疑是地上霜.\r\n举头望明月,\r\n低头思故乡.';
+
+
+
+        str1 =  "床前明月光,"+
+                "疑是地上霜."+
+                "举头望明月,"+
+                "低头思故乡.";
+        console.log(str1, typeof str1)
+    </script>
+</body>
+</html>

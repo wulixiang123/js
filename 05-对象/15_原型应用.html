@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+            // say方法会在每一个实例对象上都有一个，浪费内存空间
+            this.say = function(){
+                console.log('我的名字是: ' + this.name + ', 我的年龄是： ' + this.age);
+            }
+        }
+        // 希望每一个实例对象能共用同一个方法，该方法或属性需要定义在类[构造函数的]原型对象上
+        Person.prototype.eat = function(){
+            console.log(this.name + '正在吃饭');
+        }
+        var p1 = new Person('张三',19);
+        var p2 = new Person('李四',20);
+        p1.say();
+        p2.say();
+        p1.eat();
+        p2.eat();
+        console.log('p1.eat === p2.eat: ',p1.eat === p2.eat);//true
+        console.log(p1.say === p2.say); // false
+
+        console.log('Person.prototype: ',Person.prototype)
+
+        console.log(Person.prototype.__proto__ === Object.prototype)//true
+
+        console.log(p1.toString());
+        console.log(p1.toString === p2.toString);//true
+    </script>
+</body>
+</html>

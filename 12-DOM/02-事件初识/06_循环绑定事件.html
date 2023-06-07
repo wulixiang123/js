@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        li {
+            width: 500px;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1111</li>
+        <li>2222</li>
+        <li>3333</li>
+        <li>4444</li>
+    </ul>
+
+    <script>
+        var olis = document.querySelectorAll('li');
+        // olis[0].onclick = function(){
+        //     console.log(olis[0].innerText)
+        // }
+        // olis[1].onclick = function(){
+        //     console.log(olis[1].innerText)
+        // }
+        // olis[2].onclick = function(){
+        //     console.log(olis[2].innerText)
+        // }
+        // olis[3].onclick = function(){
+        //     console.log(olis[3].innerText)
+        // }
+
+        for(var i = 0;i<olis.length;i++){
+            olis[i].onclick = function(){
+                console.log(this.innerHTML)
+            }
+        }
+
+        // 错误案例!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111
+        // for(var i = 0;i<olis.length;i++){
+        //     olis[i].onclick = function(){
+        //         console.log(olis[i-1].innerHTML)
+        //     }
+        // }
+    </script>
+</body>
+</html>

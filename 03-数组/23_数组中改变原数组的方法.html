@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /***
+         *  数组方法：
+         * 
+         *  1. 改变原数组的7个方法【vue】：
+         *     push、pop、unshift、shift、reverse、sort、splice
+         * 
+         *  2. 带回调函数的方法：
+         *     filter、map、reduce、find、findIndex、forEach、every、some
+         *     
+         *  3. 特殊的方法
+         *     concat、slice、includes、join
+         * 
+         */
+
+        /***
+         *  数组方法：
+         *  1. 作用：
+         *  2. 参数：
+         *  3. 返回值：
+         *  4. 是否改变原来的数组
+         */
+
+        /**
+         *  push:[推] 
+         *  1. 作用：向数组的最后追加元素
+         *  2. 参数：要新追加的元素
+         *  3. 返回值[方法运行之后的结果]： 新数组的长度
+         *  4. 改变原数组
+         *  5. 语法： arr.push(新元素1,新元素2,....)
+         * 
+         */
+
+        var arr = [1, 2, 3];
+        // arr[arr.length] = 4;
+        // arr[arr.length] = 5;
+        // console.log(arr);
+
+        var res = arr.push(4, 5);
+        res = arr.push(6);
+        console.log(arr, res);
+
+
+        /**
+         *  pop[弹出]：
+         *  1. 作用：删除数组的最后一个元素
+         *  2. 参数：没有参数
+         *  3. 返回值：删除的那个元素
+         *  4. 改变原来的数组,原来的数组变成删除元素后的新数组
+         *  5. 语法：
+         *      var res = arr.pop();
+         */
+
+        var arr = [1, 2, 3, 4, 5];
+        var res = arr.pop();
+        console.log(arr, res);
+
+        /**
+         * unshift:
+         * 1. 作用：向数组的前面追加元素
+         * 2. 参数：需要添加的元素
+         * 3. 返回值：新数组的长度
+         * 4. 原数组：追加新元素后数组
+         * 5. 语法：
+         *    var res = arr.unshift(新元素1,新元素2,....)
+         * 
+         */
+        var arr = [2, 3, 4];
+        var res = arr.unshift(1);
+        console.log(arr, res);
+
+        /**
+         * shift:
+         * 1. 作用：从头删除数组的元素
+         * 2. 参数：无
+         * 3. 返回值：被删除的元素
+         * 4. 原数组：删除后的数组
+         * 5. 语法：
+         *    var res = arr.shift()
+         * 
+         */
+        var arr = [1, 2, 3, 4];
+        var res = arr.shift();
+        console.log(arr, res);
+
+        /**
+         * reverse[反转]:
+         * 1. 作用：反转数组
+         * 2. 参数：无
+         * 3. 返回值：反转后的数组
+         * 4. 原数组：反转后的数组
+         * 
+         */
+
+        var arr = ['a', 1, 'b', '2', '900'];
+        var res = arr.reverse()
+        console.log(arr, res);
+
+        /***
+         * sort:
+         * 1. 作用：数组排序[可以升序、也可以降序]
+         * 2. 参数：是一个回调函数
+         * 3. 返回值：排序后的新数组
+         * 4. 原数组：排序后的新数组
+         * 
+         */
+
+        var arr = [43, 4, 2, 7, 32, 5];
+
+        var res = arr.sort(function (a, b) {
+            // return a - b; // 升序
+            return b - a; // 降序
+        })
+        console.log(res, arr);
+
+        /***
+         * splice
+         * 
+         * 一：删除
+         * 1. 作用：删除指定索引的元素: arr.splice(startIndex,删除的个数)
+         * 2. 参数：第一个参数是索引位置，第二个参数是删除的个数
+         * 3. 返回值：删除元素组成的新数组
+         * 4. 原数组：删除元素后的数组  
+         * 
+         * 二：添加:
+         * 1. 作用：在指定索引位置添加元素
+         * 2. 参数：第一个参数索引位置，第二个参数是0，第三个参数，添加的元素
+         * 3. 返回值：空数组【因为没有删除】
+         * 4. 原数组：改变后的数组
+         * 
+         * 三：替换：
+         * 1. 作用：在指定索引位置的元素替换
+         * 2. 参数：第一个参数索引，第二个参数 1 第三个参数，要替换的元素
+         * 3. 返回值：删掉的元素组成的数组
+         * 4. 原数组：改变后的数组
+         * 
+         */
+
+        var arr = [1, 2, 3, 4, 5];
+
+        /**
+         * 删除索引是2的元素
+         * 
+         */
+        var res = arr.splice(2, 2);
+        console.log(res, arr);
+
+        /**
+         * splice添加
+         * 
+         */
+        var arr = [1, 2, 3, 4, 5];
+        var res = arr.splice(3, 0, 99, 100);
+        console.log(res, arr);
+
+        /**
+         * 替换：
+         * 
+         * 
+         */
+        var arr = [1, 2, 3, 4, 5];
+        var res = arr.splice(2, 1, 333);
+        console.log(res, arr);
+
+    </script>
+</body>
+
+</html>

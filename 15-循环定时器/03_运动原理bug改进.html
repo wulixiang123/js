@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            position:absolute;
+            left:0;
+            top:0;
+            width:100px;
+            height:100px;
+            background-color: red;
+        }
+        #box2{
+            position:absolute;
+            left:0;
+            top:220px;
+            width:100px;
+            height:100px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <div id="box2"></div>
+    <div style="margin-top: 120px;">
+        <button>开始</button><button>停止</button>
+    </div>
+
+    <div id="threebtn">
+        <button>开始运动</button>
+    </div>
+    <script>
+        var myBox = document.querySelector('#box')
+        var step = 3
+        var strBtn = document.querySelectorAll('button')[0]
+        var endBtn = document.querySelectorAll('button')[1]
+        var threebtn = document.querySelector('#threebtn')
+
+        strBtn.onclick = function(){
+            clearInterval(myBox.timer)
+            myBox.timer = setInterval(() => {
+            // getComputedStyle实时获取DOM元素实际显示时的样式
+           var oldLeft = parseFloat(getComputedStyle(myBox,null)['left']);
+           var newLeft = oldLeft + step
+           if(newLeft>500){
+            clearInterval(myBox.timer)
+            newLeft=500
+           }
+           myBox.style.left = newLeft+'px' 
+        }, 1000/60);
+    }
+        endBtn.onclick = function(){
+            clearInterval(myBox.timer)
+        }
+
+
+        var twoBtn = document.querySelector('#threebtn button');
+        var oBox2 = document.querySelector('#box2');
+       // var timer2 = null;// 将定时器放在运动物体的私有属性上
+        twoBtn.onclick = function(){
+            clearInterval(oBox2.timer);
+            oBox2.timer = setInterval(()=>{
+                // 1. 获取原来的left值
+                var oldLeft = parseFloat(getComputedStyle(oBox2, null)['left']);
+                // 2. 累加一个新的left值
+                var newLeft = oldLeft + step;
+                if (newLeft > 500) {
+                    clearInterval(oBox2.timer);// 1. 停止定时器
+                    newLeft = 500;
+                }
+                // 3. 赋值给元素的left属性
+                oBox2.style.left = newLeft + 'px';
+            },1000/60)
+        }
+    </script>
+</body>
+</html>

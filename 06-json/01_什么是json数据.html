@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         *  json格式的数据：
+         *  作用：浏览器端和服务器端发送请求传输数据，使用最多的格式
+         *  语法：属性名和属性值必须加上 ""
+         *  
+         *  json格式对象和json格式字符串相互转化的问题：
+         *  1. json格式对象--\>json格式字符串: JSON.stringify(对象)
+         *  2. json格式字符串--\>json格式的对象： JSON.parse(json格式字符串)
+         * 
+         *  parse： 解析
+         *  stringify: 字符串化
+         */
+
+         var json1 = {
+            "name" : "孙悟空",
+            "age":18// 数组类型的值可以不用加""
+         }
+         console.log(json1);
+
+         var jsonStr1 = JSON.stringify(json1);
+         console.log(jsonStr1)
+         
+         var jsonStr2 = '{"name":"尚硅谷","age":18,"sex":"男"}';
+         var json2 = JSON.parse(jsonStr2);
+         console.log(json2)
+    </script>
+</body>
+</html>

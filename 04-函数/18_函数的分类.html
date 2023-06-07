@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 具名函数
+        function fn(){
+            console.log('fn')
+        }
+        console.log(fn);
+
+        // 匿名函数
+        var sum = function(){
+            console.log('sum');
+        }
+
+        console.log(sum);
+
+        // 自执行函数【立即调用匿名函数】
+        var a = 1;
+        var b = a;
+        // 1 
+        (function(){
+            console.log('我是匿名函数的函数代码');
+        })();
+
+        // 2
+        !function(){
+            console.log('我是匿名自执行函数');
+        }()
+
+        // 3
+        +function(){
+            console.log('我是匿名自执行函数');
+        }()
+        // 4
+        -function(){
+            console.log('我是匿名自执行函数');
+        }()
+        // 5
+        &function(){
+            console.log('我是匿名自执行函数');
+        }()
+        // 6
+        ~function(){
+            console.log('我是匿名自执行函数');
+        }()
+    </script>
+</body>
+</html>

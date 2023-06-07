@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" name="hobby" id="a">台球
+    <button>切换选中状态</button>
+    <button>获取其选中状态</button>
+    <script>
+        var oinput = document.querySelector('#a');
+        var obtns = document.querySelectorAll('button');
+        var btn1 = obtns[0]
+        var btn2 = obtns[1]
+        btn2.onclick = function(){
+            console.log(oinput.checked);
+        }
+        btn1.onclick = function(){
+            oinput.checked = !oinput.checked
+        }
+    </script>
+</body>
+</html>

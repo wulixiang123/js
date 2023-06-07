@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="">
+
+    <script>
+         /**
+         * 1. 获取到文本框输入的内容
+         * 2. 如果用户输入回车，在获取文本框输入的内容
+         * 3. input 标签 onkeydown的默认行为是 文本框输入内容
+         * 4. 阻止用户输入数字
+         */
+
+         var myInput = document.querySelector('input')
+         myInput.onkeydown = function(e){
+            e = e || window.event
+            // 1. 获取输入的内容
+            // console.log(e.target.value);
+
+            // 2. 如果用户输入回车，在获取文本框输入的内容
+            // 需要知道用户输入的是不是回车？
+            // console.log(e.keyCode);
+            console.log(e.code);
+
+            // 数字键盘码： 0-48   9-57
+            // 字母：A 65 -- Z 90
+            // 回车：13
+            // 左: 37
+            // 上：38
+            // 右：39
+            // 下: 40
+            // 检测按的是否是回车 方式一：
+
+            // if(e.Keycode === 13){
+            //     console.log(e.target.value)
+            // }
+        
+                // if(e.code === 'Enter'){
+                //     console.log(e.target.value);
+                // }
+                
+                if(e.keyCode >= 48 && e.keyCode <= 57){
+                    e.preventDefault();
+                }
+            }
+    </script>
+</body>
+</html>

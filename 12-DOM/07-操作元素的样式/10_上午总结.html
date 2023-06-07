@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width:100px;
+            height:200px;
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        /**
+         * 1. getCss:
+         *    知识点：获取元素计算后的渲染属性
+         *      1. IE678：ele.currentStyle[attr]
+         *      2. 主流： getComputedStyle(ele,null)[attr]
+         *      3. 如何区分是不是IE678
+         *         3-1. "getComputedStyle" in window
+         * 
+         *      4. 判断一个值是不是有效数字【不包括NaN】
+         *         !isNaN(value)  true  是有效数字   false 不是有效数字
+         * 
+         */
+        /**
+         * 获取元素的属性值
+         * @param ele    dom 元素
+         * @param attr   属性名
+         * 
+         * return  属性值
+         */
+        function getCss(ele, attr){
+            var isIE678 = !"getComputedStyle" in window;
+            var value;
+            if(isIE678){
+                value = ele.currentStyle[attr];
+            }else{
+                value = getComputedStyle(ele, null)[attr]
+            }
+            // 10px 12.5px  0px ==> 10 ,12.5,  0
+            // red    ==> red
+
+            return !isNaN(parseFloat(value)) ? parseFloat(value) : value;
+        }
+
+        /**
+         * setCss:
+         * 知识点：
+         *     1. 设置行内样式的方法： ele.style[attr] = 属性值
+         *     2. 正则 () | test
+         *     3. isNaN 
+         */
+        /**
+         * 给元素设置属性值
+         * @param ele   dom 元素
+         * @param attr  属性
+         * @param value 属性值
+         */
+        function setCss(ele, attr, value){
+            var reg = /(width|height|left|top|right|bottom|fontSize)|(margin|padding)(Top|bottom|Right|Left)/;
+            if(reg.test(attr)){ // 说明是以上单位是px的属性
+                if(!isNaN(value)){ // 是一个数字
+                    value += 'px';
+                }
+            }
+            ele.style[attr] = value;
+        }
+        // setCss(oBox, 'width', 200);
+        // setCss(oBox, 'height', '200px');
+
+
+        /**
+         *  setGroupCss
+         * 
+         *  1. 怎么判断一个变量是一个对象，并且不是null  ===> 封装一个函数判断===> Object.prototype.toString.call().slice(8,-1)
+         *  2. 遍历一个对象 for in 循环。（不仅仅可以遍历对象的私有属性，还可以遍历到该对象继承来的父级的属性）
+         *  3. 判断私有属性 hasOwnProperty
+         * 
+         */
+
+
+        // 判断类型的函数
+        function testType(value, type){
+            var result = Object.prototype.toString.call(value).slice(8,-1);
+            return result === type;
+        }
+
+        /**
+         *  批量设置一个元素的样式
+         * @param ele  dom 元素
+         * @param options  属性对象  {width:100, height:200....}
+         * 
+         */
+        function setGroupCss(ele, options){
+            // 判断options是一个对象
+            if(testType(options, 'Object')){// options是一个对象，并且不是null，可以for in
+                for(var attr in options){
+                    
+                    // 判断是不是私有属性
+                    if(options.hasOwnProperty(attr)){
+                        // 都是私有属性，可以进行设置
+                        setCss(ele, attr, options[attr]);
+                    }
+                }
+            }
+        }
+
+        setGroupCss(document.documentElement, {width:200, height:500, backgroundColor:'red'});
+        
+    </script>
+</body>
+</html>

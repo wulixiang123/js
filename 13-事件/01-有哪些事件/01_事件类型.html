@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #out{
+            width:200px;
+            height:50px;
+            background-color: red;
+        }
+        #out div{
+            width:50px;
+            height:50px;
+            background-color: greenyellow;
+        }
+        #enter{
+            width:300px;
+            height:50px;
+            background-color: skyblue;
+        }
+        #enter div{
+            width:50px;
+            height:50px;
+            background-color: rgb(233, 214, 111);
+        }
+
+        #down{
+            width:100px;
+            height:100px;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <button>双击事件</button>
+    <div id="out">
+        <div>
+            mouseover mouseout
+        </div>
+    </div>
+
+    <div id="enter">
+        <div>
+            mouseenter mouseleave
+        </div>
+    </div>
+
+    <div id="down">mouse down</div>
+
+    <input type="text" name="" id="">
+
+    <script>
+        var myBotton = document.querySelector('button:nth-child(1)')
+        myBotton.ondblclick = function(){
+            alert('我被双击了')
+        }
+
+        var out = document.querySelector('#out');
+        // 鼠标移入
+        out.onmouseover = function(){
+            console.log('mouseover')
+            this.style.backgroundColor = 'blue';
+        }
+        // 鼠标移出
+        out.onmouseout = function(){
+            console.log('mouse out');
+            this.style.backgroundCorlor = 'red'
+        }
+
+        // 鼠标进入范围
+        var enter = document.querySelector('#enter')
+        enter.onmouseenter = function(){
+            console.log('mouseenter');
+            this.style.backgroundColor = 'pink'
+        }
+        enter.onmouseleave = function(){
+            console.log('mouseleave');
+            this.style.backgroundColor = 'hotpink'
+        }
+
+        /**
+         *  mouseover  在什么上面，移到子元素身上也认为out离开了。
+         *  mouseenter   在范围内，移到子元素身上，不会触发mouseleave回调，还认为是在范围内的
+         * 
+         */
+        // mousemove ：鼠标移动时触发
+        enter.onmousemove = function(){
+            console.log('move move move')
+        }
+
+        // mousedown 鼠标按下触发
+        var down = document.querySelector('#down');
+
+        down.onmousedown = function(){
+            console.log('mouse down')
+        }
+
+        // mouseup 鼠标抬起触发
+        down.onmouseup = function(){
+            console.log('mouse up');
+        }
+
+        // onfocus【获取焦点触发】  focus: 聚焦  onblur【失去焦点触发】 blur 模糊的
+        var myInput = document.querySelector('input');
+
+        myInput.onfocus = function(){
+            this.value = '222';
+            this.style.backgroundColor = 'red'
+        }
+        myInput.onblur = function(){
+            this.value = '';
+            this.style.backgroundColor = ''
+        }
+
+
+        // onresize： size 大小尺寸 resize：重新设置大小尺寸
+        window.onresize = function () {
+            console.log('我变了');
+        }
+    </script>
+</body>
+</html>

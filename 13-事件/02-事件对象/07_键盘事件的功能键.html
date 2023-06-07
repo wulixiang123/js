@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="">
+
+    <script>
+        var myInput = document.querySelector('input');
+        myInput.onkeyup = function(e){
+            e = e || window.event;
+             // 功能键ctrl是否被按下？
+            // e.ctrlKey 值为true证明ctrl被按下了
+            // 同理还有 e.altKey e.shiftKey
+
+            // 需求：同时按下ctrl + y触发
+            console.log(e.keyCode);
+            if(e.keyCode === 89 && e.ctrlKey){
+                console.log('同时按下了ctrl和y')
+            }
+        }
+    </script>
+</body>
+</html>

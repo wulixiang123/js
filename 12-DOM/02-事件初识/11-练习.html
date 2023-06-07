@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        li {
+            list-style: none;
+        }
+        #swipper{
+            position: relative;
+            width:333px;
+            height:500px;
+            border:1px solid red;
+            margin:50px auto;
+        }
+        ul{
+            position: absolute;
+            top:460px;
+            left:120px;
+        }
+        ul li{
+            width:15px;
+            height:15px;
+            border-radius: 50%;
+            background:rgba(255,255,255,0.5);
+            float: left;
+            margin-right: 10px;
+        }
+        ul li.active{
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        #swipper img{
+            display: block;
+            width: 333px;
+            height: 500px;
+        }
+
+        span{
+            position: absolute;
+            top:225px;
+            display: block;
+            height:60px;
+            width:20px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.4);
+            line-height: 60px;
+            color:rgb(9, 8, 8);
+            font-weight: 700;
+            cursor: pointer;
+            user-select: none;
+        }
+        #right{
+            right:0;
+        }
+
+        #left:hover{
+            background-color: rgba(255, 255, 255, 0.8);
+            transition: 1s;
+        }
+        #right:hover{
+            background-color: rgba(255, 255, 255, 0.8);
+            transition: 1s;
+        }
+        #left{
+            transition: 0.7s;
+        }
+        #right{
+            transition: 0.7s;
+        }
+
+        </style>
+</head>
+<body>
+    <div id="swipper">
+        <img src="./images/1.png" alt="">
+        <ul>
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <span id="left">&lt;</span>
+        <span id="right">&gt;</span>
+    </div>
+
+    <script>
+        var images = ["./images/1.png","./images/2.png","./images/3.png","./images/4.png","./images/5.png"]
+        var myImg = document.querySelector('img')
+        var myLi = document.querySelectorAll('li')
+        var leftBtn = document.querySelector('#left')
+        var rightBtn = document.querySelector('#right')
+        var index = 0
+        for(var i = 0;i<myLi.length;i++){
+            // 
+            myLi[i].index = i
+            myLi[i].onclick = function(){
+                for(var j = 0;j<myLi.length;j++){
+                    myLi[j].className = ''
+                }
+                this.className = 'active'
+                // myImg.src = this.images[i]
+                myImg.src = images[this.index]
+                index = this.index
+            }
+        }
+        leftBtn.onclick = function(){
+            index--
+            if(index<0){
+                index = images.length-1
+            }
+            myImg.src = images[index]
+            for(var i = 0;i<myLi.length;i++){
+                myLi[i].classname = '';
+            }
+            myLi[index].className = 'active'
+        }
+        rightBtn.onclick = function(){
+            index++;
+            if(index>images.length-1){
+                index = 0
+            }
+                myImg.src = images[index];
+                for(var i = 0;i<myLi.length;i++){
+                    myLi[i].className = ''
+                }
+                myLi[index].className = 'active'
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var students = [
+            '张胜强', '艾志萍', '田哲', '董可可', '齐泽', '杨自强', '张佳豪', '黄平辉', '张峰', '姜红梅', '高云飞'
+        ];
+
+        function getStudent(arr){
+            return arr[Math.floor(Math.random()*arr.length)]
+            // 返回一个数组中的随机学生
+        }
+        var res = getStudent(students);
+        console.log(res);
+        alert(res);
+    </script>
+    <!-- <script>
+        var students = [
+            '张胜强', '艾志萍', '田哲', '董可可', '齐泽', '杨自强', '张佳豪', '黄平辉', '张峰', '姜红梅', '高云飞'
+        ];
+
+        function getStudent(arr){
+            return arr[Math.ceil(Math.random()*arr.length-1)]
+            // 返回一个数组中的随机学生
+        }
+        var res = getStudent(students);
+        console.log(res);
+        alert(res);
+    </script> -->
+</body>
+</html>

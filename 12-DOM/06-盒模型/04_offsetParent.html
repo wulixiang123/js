@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+           relative:相对定位
+           fixed: 固定定位
+           absolute:绝对定位
+       */
+        #outer{
+            position: relative;
+            width: 600px;
+            height: 600px;
+            background-color: #bfa;
+            padding: 100px;
+        }
+        #middle{
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            padding: 50px;
+        }
+        #inner{
+            width: 300px;
+            height: 300px;  
+            background-color: yellow;
+            padding: 50px;
+        }
+        #target{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            padding: 100px;
+        }
+
+   </style>
+</head>
+<body>
+    <div id="outer">
+        <div id="middle">
+            <div id="inner">
+                <div id="target"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var myTarget = document.getElementById('target');
+        console.log(myTarget)
+        console.log(myTarget.offsetParent)
+        // 找到离当前元素最近的有定位属性[relative，absolute，fixed]的父级元素
+
+        console.log(myTarget.offseLeft);
+        console.log(myTarget.offseTop);
+    </script>
+</body>
+</html>

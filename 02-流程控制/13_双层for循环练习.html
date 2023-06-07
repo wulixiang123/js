@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // for(var i = 0;i<5;i++){
+        //     for(var a = 0;a<=i;a++){ 
+        //     document.write('*')
+        // }
+        // document.write('<br>')
+        // }
+    </script>
+    <!-- <script>
+        for(var i = 6; i > 1;i--){
+            for(var a = 0;a < i;a++){ 
+            document.write('*')
+        }
+        document.write('<br>')
+        }
+    </script> -->
+
+
+
+    <script>
+        /***
+         * 1. 输出一个正三角
+         *        *
+         *        **
+         *        ***
+         *        ****
+         *        *****
+         * 
+         * 
+         * 2. 输出一个倒三角
+         *        ******
+         *        *****
+         *        ****
+         *        ***
+         *        **
+         *        *
+         * 
+         */
+
+        //  双层for循环先执行外部for循环 执行一次 然后内层for循环 执行6次 然后继续执行外部for循环一次,内层循环6次以此类推
+
+        // 先执行外部for循环一次 然后内部一次 外部一次 内部两次 外部一次 内部三次 以此类推
+        for(var i = 0;i<5;i++){
+            for(var j = 0;j<=i;j++){
+                document.write('*')
+        }
+        document.write('<br>')
+    }
+    //@ sourceURL=sv_popWin.js
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         /**
+         * 箭头函数的简写：
+         * 1. 参数的括号可以简写:
+         * 
+         * 2. 花括号和返回值可以简写：
+         * 
+         */
+
+         // 形参只有一个时，()可以省略不写
+        var fn = a=>{
+            console.log(a)//100
+            return 123
+        }
+        console.log(fn(100))//123
+
+        // 花括号和返回值的简写, 当函数体只有一行代码，并且是返回值的时候。花括号的 return都可以不写
+        // var f1 = (a)=>{
+        //     return a + 100;
+        // } 
+
+         // 简写成
+        var f1 = a => a+100
+        console.log(f1(1))//101
+        // reduce 计算和
+        var arr = [1,2,3,4]
+        var sum = arr.reduce((pre,cur)=>pre+cur,0)
+        console.log(sum)//10
+    </script>
+</body>
+</html>

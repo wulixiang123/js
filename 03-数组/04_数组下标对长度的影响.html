@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //         0 1 2
+        var arr = [1,2,3];
+        console.log(arr,arr[1]);//2
+        arr[1] = 99;//给第二个值2改变成99
+        console.log(arr);
+
+        console.log(arr[99]);//第99个数为undefined
+        arr[10] = 10;//长度变为11, 第11个值为10,中间补充空值(undefined)7个
+        console.log(arr);
+    </script>
+</body>
+</html>

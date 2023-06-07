@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var phoneStr = "13067890123";
+        // ^ 1. 在[]中表示除了 [^abc]
+        //   2. 写在正则规则的最前面：表示开头
+        var phoneReg = /^1[3-9][0-9]{9}$/;
+        console.log(phoneReg.test(phoneStr));	
+
+
+        // 需求：6位的密码  由 字母、数字、@_组成
+
+        var reg = /^[0-9A-z@_]{6}$/;
+    </script>
+</body>
+
+</html>

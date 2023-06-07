@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>我是div</div>
+    <script>
+        var myDiv = document.querySelector('div');
+        var child = myDiv.childNodes[0];
+        console.dir(child)//text
+        console.log(child.nodeValue)//我是div
+
+        child.nodeValue = '你爱是不是!';
+
+        console.log('innerHTML:',myDiv.innerHTML)//你爱是不是!
+        console.log('innerText:',myDiv.innerText)//你爱是不是!
+    </script>
+</body>
+</html>

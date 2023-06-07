@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+         *  其他数据类型向数字转化 
+         *  1. Number()
+         *  2. parseInt()
+         *  3. parseFloat()
+         * 
+         */
+        
+
+        // 1. string  ==> number
+        // Number  纯数字[整数|小数]的字符串 或者是 纯数字 前后有空格的字符串 ==> 数字
+        // Number('')  ==> 0
+        // Number(null) ==> 0
+        // Number('   ')==> 0
+        // Number(true) ==> 1
+        // Number(false)==> 0
+        // Number(undefined) ==> NaN
+
+        console.log(Number('123'));     // 123 number
+        console.log(Number('123abc'));  // NaN
+        console.log(Number('abc123'));  // NaN
+        console.log(Number(''));        // 0
+        console.log(Number('      '));  // 0
+        console.log(Number('     123'));// 123
+        console.log(Number('123    ')); // 123
+        console.log(Number('    123    ')); //123
+        console.log(Number('   1   2   3   ')); // NaN
+        console.log(Number('12.05'));       // 12.05
+        console.log(Number('12.05px'));     // NaN
+
+        // 2. boolean ==> number
+        console.log(Number(true));      // 1
+        console.log(Number(false));     // 0
+        // 3. null    ===> number
+        console.log(Number(null));      // 0
+        // 4. undefined ==> number
+        console.log(Number(undefined))  // NaN
+    </script>
+</body>
+
+</html>

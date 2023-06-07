@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        爱好：
+        <input type="checkbox" name="hobby" id=""> 台球
+        <input type="checkbox" name="hobby" id=""> 篮球
+        <input type="checkbox" name="hobby" id=""> 羽毛球
+        <input type="checkbox" name="hobby" id=""> 乒乓球
+
+        <div>
+            <input type="checkbox" name="checkAll" id=""> 全选 / 反选
+        </div>
+    </div>
+
+    <script>
+        /**
+         *  需求：
+         * 1. 当所有的爱好都被选中时，全选被选中
+         * 2. 当点击全选被选中时，上面的爱好也都被选中，当点击全选是未选中时，上面的爱好也都不选中
+         */
+
+        // 1. 获取元素节点
+        var oinputs = document.querySelectorAll('[name=hobby]');
+        var input5 = document.querySelector('[name=checkAll]');
+        // console.log(oinputs,input5)
+        // 2. 全选反选功能切换
+        /**
+         *  思路：
+         *  1. 给复选框，绑定点击事件
+         *  2. 获取全选反选复选框最新的checked值
+         *  3. 循环遍历 hobbys，修改每一个的checked值为 全选反选获取到的最新的checked值即可
+         * 
+         */
+        input5.onclick = function(){
+            var checked = this.checked;
+            for(var i = 0;i<oinputs.length;i++){
+                oinputs[i].checked = checked;
+            }
+        }
+        // 3. 点击爱好的复选框，当所有的都被选中时，让全选被勾选，但凡有一个没有被选中，那么，全选不勾选
+        /**
+         *  思路：
+         *  1. 给每一个hobby复选框绑定单击事件
+         *  2. 每点击一次，统计一下，hobby中checked是true的数量，如果数量和长度相同，说明都被选中了，那么让全选也选中。如果不相同，那么说明有没有被选中的。
+         * 
+         */
+        // 外层for循环的遍历，是给每一个hobby复选框绑定单击事件用的
+            for(var i = 0;i<oinputs.length;i++){
+                oinputs[i].onclick = function(){
+                     // 声明一个计数器
+                    var count = 0;
+                    // 内层for循环的遍历，是为了统计 checked是true的数量
+                    for(var j = 0;j<oinputs.length;j++){
+                        // hobbys[j].checked ? count++ : count;
+                        count = count+oinputs[j].checked;// Number(true) =>1 Number(false)=>0
+                    }
+                    // 循环后得到了 hobbys 复选框checked值为true 的数量
+                    if(count===oinputs.length){ // 说明全选了
+                        //让全选复选框选中
+                        input5.checked = true
+                    }else{// 未全选
+                        input5.checked = false
+                    }
+                }
+            }
+    </script>
+</body>
+</html>

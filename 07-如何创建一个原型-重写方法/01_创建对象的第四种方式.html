@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         /**
+         * 1. 字面量
+         * 2. new Object
+         * 3. 构造函数
+         * 4. var obj1 = Object.create(obj2) 创建
+         *     创建出来的对象obj1 的原型对象是 obj2
+         * 
+         */
+
+          /**
+         *  需求：重写数组中的 push、pop、... 那七个改变原数组的方法
+         *      1. 保留原数组的方法的功能
+         *      2. 每次调用方法后，增加一个输出功能，视图已经更新了
+         * 
+         *  重写方法：方法本身在Array.prototype身上的
+         */
+
+        // var arr = [1,2,3,4];
+        // arr.push(5,6,7,8);//需要重写push方法
+        // //  console.log(arr);
+        // var originPrototype = Array.prototype;//将数组之前的原型对象保存
+        // Array.prototype.push = function(){
+        //     console.log('this:',this);
+        //     console.log(originPrototype.push);
+        //     originPrototype.push.apply(this,[...arguments]);
+        //     console.log('视图已更新');
+        // }
+        // arr.push(7,8,9);
+        // console.log(arr);
+            //新原型类型 = 创建一个空对象{}继承在它身上
+        var newPrototype = Object.create(Array.prototype);
+        var methods = ['push','pop','unshift','shift','splice','reverse','sort'];
+        //遍历数组并封装成函数
+        methods.forEach(function (fangfa){
+            newPrototype[fangfa] = function(){
+                Array.prototype[fangfa].apply(this,arguments);
+                console.log('视图已更新');
+            }
+        })
+        var arr = [1,2,3,4];
+        if(Array.isArray(arr)){
+            arr.__proto__=newPrototype
+        }
+        arr.push(5,6,7);
+        console.log(arr);
+
+        arr.pop();
+        console.log(arr);
+    </script>
+</body>
+</html>
